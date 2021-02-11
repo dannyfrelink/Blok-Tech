@@ -2,8 +2,8 @@
 Dit is de repository die ik gebruik om opdracht voor Project Tech weer te geven. In mijn geval is dit een applicatie waarmee de gebruiker kan matchen met reisliefhebbers om samen reizen in de toekomst mee te doen.
 
 ## Table of Contents
-* [Installeren](##installeren)
-* [License](##license)
+* [Installeren](#installeren)
+* [License](#license)
 
 ## Installeren
 Om gebruik te kunnen maken van mijn repository moet je eerst de Github page clonen:
