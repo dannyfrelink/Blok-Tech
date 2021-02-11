@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 var port = 5555;
 
+app.use(express.static('static/public'));
+
 app.get('/', (req, res) => {
     res.send('Dit is het welkomst scherm.')
 });
@@ -25,8 +27,6 @@ app.get('/profiel/zoekopdracht', (req, res) => {
 app.use(function (req, res, next) {
     res.status(404).send('Sorry, deze pagina kon ik niet vinden.')
 });
-
-app.use(express.static('/static/public'));
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
