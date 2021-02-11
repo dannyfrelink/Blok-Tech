@@ -3,7 +3,7 @@ var app = express();
 var port = 5555;
 
 app.get('/', (req, res) => {
-    res.send('helloworld!')
+    res.send('Dit is het welkomst scherm.')
 });
 
 app.get('/profiel', (req, res) => {
