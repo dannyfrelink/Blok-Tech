@@ -26,9 +26,7 @@ app.use(function (req, res, next) {
     res.status(404).send('Sorry, deze pagina kon ik niet vinden.')
 });
 
-app.use(express.static('Static' + '/Public'));
-
-console.log(express.static);
+app.use(express.static('/static/public'));
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
