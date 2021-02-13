@@ -12,12 +12,13 @@
     <body>
         <form action="">
             <label for="name">Voor- en achternaam</label>
-            <input type="text" name="name">
+            <input type="text" name="name" placeholder="Pieter van der Meer">
             <div>
                 <div>
                     <label for="nation">Nationaliteit</label>
                     <!-- landenlijst: https://www.zelfstudie.be/tools/landenlijst-contactformulier.html -->
                     <select name="nation">
+                        <option selected disabled hidden>Kies een land</option>
                         <option>Afghanistan</option>
                         <option>Albania</option>
                         <option>Algeria</option>
@@ -257,6 +258,7 @@
                     <input type="date" name="geboorte">
                     <label for="geslacht">Geslacht</label>
                     <select name="geslacht">
+                        <option selected disabled hidden>Kies een geslacht</option>
                         <option value="man">Man</option>
                         <option value="vrouw">Vrouw</option>
                         <option value="onbekend">Wil ik niet zeggen</option>
@@ -264,7 +266,7 @@
                 </div>
                 <div>
                     <label for="bio">Vertel iets over jezelf</label>
-                    <textarea name="bio"></textarea>
+                    <textarea name="bio" placeholder="Ik hou van ..."></textarea>
                 </div>
             </div>
         </form>

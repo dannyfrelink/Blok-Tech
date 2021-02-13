@@ -12,7 +12,7 @@ body {
 }
 
 form {
-    margin: 2.5em auto 1.5em;
+    margin: 2.3em auto 1em;
     display: flex;
     flex-direction: column;
 }
@@ -41,10 +41,14 @@ form div div:last-of-type {
 form div div:last-of-type textarea {
     height: 100%;
 }
+::placeholder,
+select option {
+    opacity: 0.8;
+}
 
 section:first-of-type {
     display: flex;
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
 }
 section img {
     object-fit: cover;
@@ -70,4 +74,13 @@ section div img:last-of-type {
 section div img:nth-of-type(4),
 section div img:nth-of-type(5) {
     margin-top: auto;
+}
+
+section:not(:first-of-type) {
+    background-color: white;
+    border: 1px solid black;
+    margin-bottom: 1.5em;
+}
+section p {
+    margin: 0.5em 0.2em;
 }
