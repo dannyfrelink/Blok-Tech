@@ -12,7 +12,7 @@ body {
 }
 
 form {
-    margin: 2.3em auto 1em;
+    margin: 2em auto 1em;
     display: flex;
     flex-direction: column;
 }
@@ -85,10 +85,25 @@ section p {
     margin: 0.5em 0.2em;
 }
 
+section:last-of-type {
+    display: flex;
+    justify-content: space-between;
+    background-color: initial;
+    border: none;
+}
+section:last-of-type img {
+    background-color: #A9DEEA;
+    padding: 0.2em;
+    width: 2.5em;
+    height: 2.5em;
+    margin: 0;
+    border-radius: 10vw;
+}
+
 footer {
     width: 90vw;
     position: fixed;
-    bottom: 1em;
+    bottom: 0.5em;
     right: auto;
     left: auto;
     display: flex;
