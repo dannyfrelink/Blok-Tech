@@ -1,0 +1,73 @@
+html {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    background-image: linear-gradient(#95D8EA, #529ECC);
+}
+
+body {
+    width: 90vw;
+    margin: auto;
+    overflow-x: hidden;
+}
+
+form {
+    margin: 2.5em auto 1.5em;
+    display: flex;
+    flex-direction: column;
+}
+form div {
+    display: flex;
+    flex-direction: column;
+}
+form>div {
+    flex-direction: row;
+    justify-content: space-between;
+}
+form input,
+form select,
+form textarea {
+    margin-bottom: 0.5em;
+}
+form>input {
+    width: 60vw;
+}
+form div div:first-of-type {
+    width: 37vw;
+}
+form div div:last-of-type {
+    width: 48vw;
+}
+form div div:last-of-type textarea {
+    height: 100%;
+}
+
+section:first-of-type {
+    display: flex;
+    margin-bottom: 2em;
+}
+section img {
+    object-fit: cover;
+    border: 1px solid black;
+}
+section>img {
+    width: 8em;
+    height: 8em;
+    margin-right: auto;
+}
+section div {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+section div img {
+    width: 3.5em;
+    height: 3.5em;
+}
+section div img:last-of-type {
+    opacity: 0;
+}
+section div img:nth-of-type(4),
+section div img:nth-of-type(5) {
+    margin-top: auto;
+}
