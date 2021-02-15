@@ -1,11 +1,16 @@
 var express = require('express');
+var exphandlebars  = require('express-handlebars');
+
 var app = express();
 var port = 5555;
 
 app.use(express.static('static/public'));
 
+app.engine('handlebars', exphandlebars());
+app.set('view engine', 'handlebars');
+
 app.get('/', (req, res) => {
-    res.send('Dit is het welkomst scherm.')
+    res.render('home.handlebars');
 });
 
 app.get('/profiel', (req, res) => {
