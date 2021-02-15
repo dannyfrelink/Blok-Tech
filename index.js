@@ -13,11 +13,11 @@ app.engine('handlebars', expHandlebars());
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-    res.render('home', {countries});
+    res.render('profiel', {countries});
 });
 
 app.get('/profiel', (req, res) => {
-    res.render('home');
+    res.render('profiel');
 });
 
 app.get('/profiel/persoonsgegevens', (req, res) => {
