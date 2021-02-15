@@ -1,17 +1,19 @@
 var express = require('express');
-var exphandlebars  = require('express-handlebars');
-var countries = require('countries-list');
+var expHandlebars  = require('express-handlebars');
+var countriesList = require('countries-list');
+
+var countries = [{countriesList}];
 
 var app = express();
 var port = 5555;
 
 app.use(express.static('static/public'));
 
-app.engine('handlebars', exphandlebars());
+app.engine('handlebars', expHandlebars());
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home', {countries});
 });
 
 app.get('/profiel', (req, res) => {
