@@ -4,17 +4,17 @@ var exphandlebars  = require('express-handlebars');
 var app = express();
 var port = 5555;
 
-// app.use(express.static('static/public'));
+app.use(express.static('static/public'));
 
 app.engine('handlebars', exphandlebars());
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-    res.render('home.handlebars');
+    res.render('home');
 });
 
 app.get('/profiel', (req, res) => {
-    res.send('Dit is de pagina waarop het profiel te zien is.');
+    res.render('home');
 });
 
 app.get('/profiel/persoonsgegevens', (req, res) => {
