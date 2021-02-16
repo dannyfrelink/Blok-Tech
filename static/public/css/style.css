@@ -7,6 +7,8 @@ html {
 }
 
 body {
+    position: relative;
+    height: 100vh;
     width: 90vw;
     margin: auto;
     overflow-x: hidden;
@@ -36,14 +38,39 @@ form>input {
 form div div:first-of-type {
     width: 37vw;
 }
-form div div:last-of-type {
+form div div:nth-of-type(2) {
     width: 48vw;
 }
-form div div:last-of-type textarea {
+form div div:nth-of-type(2) textarea {
     height: 100%;
 }
-::placeholder,
-select option {
+form button {
+    position: absolute;
+    bottom: 4.6em;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+form button img {
+    width: 3.08em;
+    height: 3.08em;
+}
+form img {
+    background-color: #A9DEEA;
+    padding: 0.2em;
+    width: 2.5em;
+    height: 2.5em;
+    margin: 0;
+    border-radius: 10vw;
+    border: 1px solid black;
+}
+form>div:nth-of-type(2)>img {
+    position: absolute;
+    bottom: 4em;
+    left: 0;
+}
+::placeholder {
     opacity: 0.8;
 }
 
@@ -91,6 +118,15 @@ section:last-of-type {
     justify-content: space-between;
     background-color: initial;
     border: none;
+}
+section:last-of-type button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+section:last-of-type button img {
+    width: 3.08em;
+    height: 3.08em;
 }
 section:last-of-type img {
     background-color: #A9DEEA;
