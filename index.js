@@ -2,7 +2,7 @@ var express = require('express');
 var expHandlebars  = require('express-handlebars');
 var countriesList = require('countries-list');
 
-var countries = [{countriesList}];
+var landen = Object.values(countriesList.countries);
 
 var app = express();
 var port = 5555;
@@ -13,7 +13,7 @@ app.engine('handlebars', expHandlebars());
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-    res.render('profiel', {countries});
+    res.render('profiel', {landen});
 });
 
 app.get('/profiel', (req, res) => {
