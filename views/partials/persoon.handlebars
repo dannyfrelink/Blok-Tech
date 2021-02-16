@@ -1,10 +1,7 @@
-<!-- Persoonsgegevens -->
 <form action="">
-    <label for="name">Voor- en achternaam</label>
     <input type="text" name="name" placeholder="Pieter van der Meer">
     <div>
         <div>
-            <label for="nation">Nationaliteit</label>
             <!-- landenlijst: https://www.zelfstudie.be/tools/landenlijst-contactformulier.html -->
             <select name="nation">
                 <option selected disabled hidden>Kies een land</option>
@@ -243,9 +240,7 @@
                 <option>Zambia</option>
                 <option>Zimbabwe</option>
             </select>
-            <label for="geboorte">Geboortedatum</label>
             <input type="date" name="geboorte">
-            <label for="geslacht">Geslacht</label>
             <select name="geslacht">
                 <option selected disabled hidden>Kies een geslacht</option>
                 <option value="man">Man</option>
@@ -254,28 +249,7 @@
             </select>
         </div>
         <div>
-            <label for="bio">Vertel iets over jezelf</label>
             <textarea name="bio" placeholder="Ik hou van ..."></textarea>
         </div>
     </div>
 </form>
-<!-- Foto's -->
-<section>
-    <img src="images/persoon6.jpg" alt="Profielfoto">
-    <div>
-        <img src="images/persoon5.jpg" alt="Extra foto 1">
-        <img src="images/persoon4.jpg" alt="Extra foto 2">
-        <img src="images/persoon3.jpg" alt="Extra foto 3">
-        <img src="images/persoon2.jpg" alt="Extra foto 4">
-        <img src="images/persoon1.jpg" alt="Extra foto 5">
-        <img src="" alt="">
-    </div>
-</section>
-<!-- Zoekopdracht -->
-<section>
-    <p>Ik ben op zoek naar een {leeftijd} oude {geslacht} met de nationaliteit {nationaliteit} en deze interesses: {interesses}</p>
-</section>
-<!-- Landen -->
-<section>
-    <p>Dit zijn de landen waar jij graag naar toe wilt: {{#each landen}} {{this.name}}{{this.emoji}}, {{/each}}</p>
-</section>
