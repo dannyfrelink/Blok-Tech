@@ -3,6 +3,7 @@ var expHandlebars  = require('express-handlebars');
 var countriesList = require('countries-list');
 
 var landen = Object.values(countriesList.countries);
+var continenten = Object.values(countriesList.continents);
 
 var app = express();
 var port = 5555;
