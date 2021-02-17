@@ -12,12 +12,20 @@ app.use(express.static('static/public'));
 app.engine('handlebars', expHandlebars());
 app.set('view engine', 'handlebars');
 
-app.get('/', (req, res) => {
-    res.render('profiel-1', {landen});
+app.get('/profiel-1', (req, res) => {
+    res.render('profiel-1');
 });
 
-app.get('/profiel', (req, res) => {
+app.get('/profiel-2', (req, res) => {
     res.render('profiel-2');
+});
+
+app.get('/profiel-3', (req, res) => {
+    res.render('profiel-3');
+});
+
+app.get('/profiel-4', (req, res) => {
+    res.render('profiel-4', {landen});
 });
 
 app.get('/profiel/persoonsgegevens', (req, res) => {
