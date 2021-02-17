@@ -1,7 +1,7 @@
 html {
     width: 100vw;
     height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
     background-image: linear-gradient(#95D8EA, #529ECC);
     background-attachment: fixed;
 }
@@ -11,7 +11,7 @@ body {
     height: 100vh;
     width: 90vw;
     margin: auto;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 form {
