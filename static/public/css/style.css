@@ -114,28 +114,25 @@ section p {
 }
 
 section:last-of-type {
-    display: flex;
-    justify-content: space-between;
-    background-color: initial;
     border: none;
-}
-/* section:last-of-type button {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-}
-section:last-of-type button img {
-    width: 3.08em;
-    height: 3.08em;
 }
 section:last-of-type img {
+    position: absolute;
+    bottom: 4em;
     background-color: #A9DEEA;
     padding: 0.2em;
     width: 2.5em;
     height: 2.5em;
     margin: 0;
     border-radius: 10vw;
-} */
+    border: 1px solid black;
+}
+section:last-of-type img:first-of-type {
+    left: 0;
+}
+section:last-of-type img:nth-of-type(2) {
+    right: 0;
+}
 
 footer {
     width: 90vw;
