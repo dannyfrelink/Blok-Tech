@@ -18,7 +18,7 @@ app.get('/profiel-1', (req, res) => {
 });
 
 app.get('/profiel-2', (req, res) => {
-    res.render('profiel-2');
+    res.render('addFoto');
 });
 
 app.get('/profiel-3', (req, res) => {
