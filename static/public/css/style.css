@@ -230,6 +230,52 @@ form.fotos>div:last-of-type>img {
     bottom: 4em;
 }
 
+/* form.zoekopdracht {
+    fo;
+} */
+form.zoekopdracht div {
+    flex-direction: column;
+}
+form.zoekopdracht label {
+    width: 100vw;
+}
+form.zoekopdracht input {
+    margin-left: 0.8em;
+    margin-bottom: 0.15em;
+}
+form.zoekopdracht>div>label {
+    font-size: 1.1em;
+    margin-bottom: 0.4em;
+}
+form.zoekopdracht>div>div>input {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+    z-index: -1;
+}
+form.zoekopdracht>div>div>label {
+    background-color: white;
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    font-size: 1.1em;
+    padding: 0.15em 0.4em;
+}
+form.zoekopdracht>div>div>div>label,
+form.zoekopdracht>div>div>div>input {
+    margin-top: auto;
+}
+form.zoekopdracht div div {
+    display: flex;
+    flex-direction: row;
+}
+form.zoekopdracht div div label:not(:first-of-type) {
+    margin-left: 0.6em;
+}
+
+
 footer {
     width: 90vw;
     position: fixed;

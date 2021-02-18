@@ -23,7 +23,7 @@ app.get('/profiel-2', (req, res) => {
 });
 
 app.get('/profiel-3', (req, res) => {
-    res.render('profiel-3');
+    res.render('addZoekopdracht');
 });
 
 app.get('/profiel-4', (req, res) => {
