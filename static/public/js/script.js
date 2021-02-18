@@ -3,7 +3,7 @@ var displayImage = document.querySelectorAll('form.fotos label');
 
 kiesImage.addEventListener('change', function () {
     getDataImg();
-})
+});
 
 function getDataImg () {
     var files1 = kiesImage.files[0];
