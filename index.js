@@ -1,6 +1,7 @@
 var express = require('express');
 var expHandlebars  = require('express-handlebars');
 var countriesList = require('countries-list');
+var FileReader = require('filereader');
 
 var landen = Object.values(countriesList.countries);
 var continenten = Object.values(countriesList.continents);

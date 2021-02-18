@@ -22,6 +22,7 @@
     "countries-list": "^2.6.1",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
+    "filereader": "^0.10.3",
     "nodemon": "^2.0.7"
   }
 }
