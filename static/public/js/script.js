@@ -1,6 +1,10 @@
 var kiesImage = document.querySelector('form.fotos input');
 var displayImage = document.querySelectorAll('form.fotos label');
 
+var zoekopdrachtLabel = document.querySelector('form.zoekopdracht>div:first-of-type>div>label:first-of-type');
+var zoekopdrachtInput = document.querySelector('form.zoekopdracht>div:first-of-type>div>input:first-of-type');
+var zoekopdrachtSelect = document.querySelector('select');
+
 kiesImage.addEventListener('change', function () {
     getDataImg();
 });
@@ -89,3 +93,18 @@ function getDataImg () {
         });
     };
 }
+
+// function setActive () {
+//     if(zoekopdrachtInput = checked) {
+//         zoekopdrachtLabel.classList.add('active');
+//     }
+//     else {
+//         zoekopdrachtLabel.classList.remove('active');
+//     }
+// }
+
+function setActive () {
+    zoekopdrachtLabel.classList.add('active');
+}
+
+zoekopdrachtLabel.addEventListener('click', setActive);
