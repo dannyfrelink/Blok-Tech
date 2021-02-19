@@ -104,8 +104,3 @@ function getDataImg () {
         });
     };
 }
-
-
-
-
-
