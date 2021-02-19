@@ -303,14 +303,11 @@ form.zoekopdracht>div:last-of-type>img {
     position: absolute;
     bottom: 4em;
 }
-/* form.zoekopdracht div div label:hover {
-    background-color: #B4DAA1;
-}
 form.zoekopdracht>div:nth-of-type(4)>div>div>label:hover,
-form.zoekopdracht>div:nth-of-type(4)>div>div>label:active {
-    background-color: #B4DAA1;
-} */
-.active {
+form.zoekopdracht>div>div>label:hover,
+form.zoekopdracht>div>div>label.checked,
+form.zoekopdracht>div:nth-of-type(4)>div>div>label.checked,
+form.zoekopdracht select.checked {
     background-color: #B4DAA1;
 }
 

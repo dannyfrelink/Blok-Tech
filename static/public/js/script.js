@@ -1,24 +1,35 @@
-var kiesImage = document.querySelector('form.fotos input');
+var kiesImage = document.querySelectorAll('form.fotos input');
 var displayImage = document.querySelectorAll('form.fotos label');
 
-var zoekopdrachtLabel = document.querySelector('form.zoekopdracht>div:first-of-type>div>label:first-of-type');
-var zoekopdrachtInput = document.querySelector('form.zoekopdracht>div:first-of-type>div>input:first-of-type');
-var zoekopdrachtSelect = document.querySelector('select');
+var checkboxLabels = document.querySelectorAll('form.zoekopdracht>div>div label');
+var chooseSelects = document.querySelectorAll('form.zoekopdracht select ');
+
+checkboxLabels.forEach(function (checkboxLabel) {
+    checkboxLabel.addEventListener('click', function () {
+        checkboxLabel.classList.toggle('checked')
+    })
+});
+
+chooseSelects.forEach(function (chooseSelect) {
+    chooseSelect.addEventListener('change', function () {
+        chooseSelect.classList.add('checked')
+    })
+});
 
 kiesImage.addEventListener('change', function () {
     getDataImg();
 });
 
 function getDataImg () {
-    var files1 = kiesImage.files[0];
-    var files2 = kiesImage.files[1];
-    var files3 = kiesImage.files[2];
-    var files4 = kiesImage.files[3];
-    var files5 = kiesImage.files[4];
-    var files6 = kiesImage.files[5];
-    var files7 = kiesImage.files[6];
-    var files8 = kiesImage.files[7];
-    var files9 = kiesImage.files[8];
+    var files1 = kiesImage[0].files[0];
+    var files2 = kiesImage[1].files[1];
+    var files3 = kiesImage[2].files[2];
+    var files4 = kiesImage[3].files[3];
+    var files5 = kiesImage[4].files[4];
+    var files6 = kiesImage[5].files[5];
+    var files7 = kiesImage[6].files[6];
+    var files8 = kiesImage[7].files[7];
+    var files9 = kiesImage[8].files[8];
 
     if (files1){
         var fileReader = new FileReader();
@@ -94,17 +105,7 @@ function getDataImg () {
     };
 }
 
-// function setActive () {
-//     if(zoekopdrachtInput = checked) {
-//         zoekopdrachtLabel.classList.add('active');
-//     }
-//     else {
-//         zoekopdrachtLabel.classList.remove('active');
-//     }
-// }
 
-function setActive () {
-    zoekopdrachtLabel.classList.add('active');
-}
 
-zoekopdrachtLabel.addEventListener('click', setActive);
+
+
