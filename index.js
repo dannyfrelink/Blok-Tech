@@ -18,12 +18,24 @@ app.get('/profiel-1', (req, res) => {
     res.render('profiel-1');
 });
 
-app.get('/profiel-2', (req, res) => {
+app.get('/fotos', (req, res) => {
     res.render('addFoto');
 });
 
-app.get('/profiel-3', (req, res) => {
+app.get('/profiel-2', (req, res) => {
+    res.render('profiel-2');
+});
+
+app.get('/zoekopdracht', (req, res) => {
     res.render('addZoekopdracht');
+});
+
+app.get('/profiel-3', (req, res) => {
+    res.render('profiel-3');
+});
+
+app.get('/reizen', (req, res) => {
+    res.render('addReizen');
 });
 
 app.get('/profiel-4', (req, res) => {
