@@ -178,14 +178,15 @@ form.fotos label {
     width: 1.6em;
     height: 1.6em;
     line-height: 1.6em;
-    /* padding-left: 0.5em; */
     font-size: 3em;
+}
+form.fotos label:not(:first-child) {
+    display: none
 }
 form.fotos>div:first-of-type>label:first-of-type {
     width: 2.2em;
     height: 2.2em;
     line-height: 2.05em;
-    /* padding-left: 0.75em; */
     font-size: 5em;
 }
 form.fotos label p {
@@ -195,11 +196,6 @@ form.fotos label p {
 form.fotos>div:first-of-type>label p {
     padding-left: 0.8em;
 }
-form.fotos>div:first-of-type>label img {
-    width: 2em;
-    height: 2em;
-    object-fit: cover;
-}
 form.fotos label img {
     width: 100%;
     height: 100%;
@@ -207,7 +203,6 @@ form.fotos label img {
     display: block;
     border: none;
     border-radius: 0;
-    /* background-color: transparent; */
     padding: 0;
 }
 form.fotos>div {
@@ -310,8 +305,6 @@ form.zoekopdracht>div:nth-of-type(4)>div>div>label.checked,
 form.zoekopdracht select.checked {
     background-color: #B4DAA1;
 }
-
-
 
 footer {
     width: 90vw;
