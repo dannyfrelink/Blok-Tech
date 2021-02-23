@@ -18,11 +18,15 @@ app.get('/persoonsgegevens', (req, res) => {
     res.render('profiel-1');
 });
 
-app.get('/fotos', (req, res) => {
+app.post('/fotos', (req, res) => {
     res.render('addFoto');
 });
 
-app.post('/fotos', (req, res) => {
+// app.get('/profiel/fotos', (req, res) => {
+//     res.render('profiel-2');
+// });
+
+app.post('/profiel/fotos', (req, res) => {
     res.render('profiel-2');
 });
 
@@ -34,7 +38,7 @@ app.get('/zoekopdracht', (req, res) => {
     res.render('addZoekopdracht');
 });
 
-app.post('/zoekopdracht', (req, res) => {
+app.post('/profiel/zoekopdracht', (req, res) => {
     res.render('profiel-3');
 });
 
@@ -46,7 +50,7 @@ app.get('/reizen', (req, res) => {
     res.render('addReizen');
 });
 
-app.post('/reizen', (req, res) => {
+app.post('/profiel/reizen', (req, res) => {
     res.render('profiel-4', {landen});
 });
 
