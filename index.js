@@ -2,6 +2,45 @@ var express = require('express');
 var expHandlebars  = require('express-handlebars');
 var countriesList = require('countries-list');
 var FileReader = require('filereader');
+var {MongoClient} = require('mongodb');
+
+var uri = "mongodb://localhost:27018";
+
+async function connect () {
+    var client = new MongoClient(uri);
+    try {
+        await client.connect();
+        var db = client.db('Cluster-Project-Tech');
+        console.log(`Connectie gelukt ${db.databaseName}`)
+    }
+    catch (error) {
+        console.error('Connectie mislukt' + error)
+    }
+    finally {
+        client.close();
+    }
+}
+connect();
+
+// async function connect () {
+//     var client = new MongoClient();
+//     try {
+
+
+
+//     }
+//     catch (error) {
+//         console.error('Connectie mislukt' + error)
+//     }
+//     finally {
+
+
+//     }
+// }
+
+// var mongoose = require('mongoose');
+
+// mongoose.connect('mongodb://localhost/testaroo');
 
 var landen = Object.values(countriesList.countries);
 var continenten = Object.values(countriesList.continents);
@@ -73,6 +112,8 @@ app.post('/profiel/reizen', (req, res) => {
 // app.get('/profiel/reizen', (req, res) => {
 //     res.render('Dit is de pagina waar je kan aangeven welke reizen je allemaal wilt maken.');
 // });
+
+
 
 app.use(function (req, res, next) {
     res.status(404).send('Sorry, deze pagina kon ik niet vinden.')
