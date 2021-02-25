@@ -1,48 +1,18 @@
-var express = require('express');
-var expHandlebars  = require('express-handlebars');
-var countriesList = require('countries-list');
-var FileReader = require('filereader');
-var dotenv = require('dotenv').config();
-var mongoose = require('mongoose');
-var dbURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}`
+const express = require('express');
+const expHandlebars  = require('express-handlebars');
+const countriesList = require('countries-list');
+const FileReader = require('filereader');
+const dotenv = require('dotenv').config();
+const mongoose = require('mongoose');
+const dbURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}`
 
-// console.log(dbURL)
+mongoose.connect(dbURL, {useUnifiedTopology: true, useNewUrlParser: true});
 
-mongoose.connect(dbURL, {​​​​useUnifiedTopology: true, useNewUrlParser: true })
+const landen = Object.values(countriesList.countries);
+const continenten = Object.values(countriesList.continents);
 
-// mongoose.connect(dbUrl, {​​​​ useUnifiedTopology: true }​​​​)
-
-console.log(process.env.DB_USER)
-
-// var {MongoClient} = require('mongodb');
-
-// var uri = "mongodb://localhost:27018";
-
-// async function connect () {
-//     var client = new MongoClient(uri);
-//     try {
-//         await client.connect();
-//         var db = client.db('Cluster-Project-Tech');
-//         console.log(`Connectie gelukt ${db.databaseName}`)
-//     }
-//     catch (error) {
-//         console.error('Connectie mislukt' + error)
-//     }
-//     finally {
-//         client.close();
-//     }
-// }
-// connect();
-
-// var mongoose = require('mongoose');
-
-// mongoose.connect('mongodb://localhost/testaroo');
-
-var landen = Object.values(countriesList.countries);
-var continenten = Object.values(countriesList.continents);
-
-var app = express();
-var port = 5555;
+const app = express();
+const port = 5555;
 
 app.use(express.static('static/public'));
 

@@ -1,8 +1,8 @@
-var checkboxLabels = document.querySelectorAll(`form.zoekopdracht>div>div label`);
-var chooseSelects = document.querySelectorAll(`form.zoekopdracht select`);
+const checkboxLabels = document.querySelectorAll(`form.zoekopdracht>div>div label`);
+const chooseSelects = document.querySelectorAll(`form.zoekopdracht select`);
 
-var imageInputs = document.querySelectorAll(`form.fotos input`);
-var imageLabels = document.querySelectorAll(`form.fotos label`);
+const imageInputs = document.querySelectorAll(`form.fotos input`);
+const imageLabels = document.querySelectorAll(`form.fotos label`);
 
 checkboxLabels.forEach(function (checkboxLabel) {
     checkboxLabel.addEventListener(`click`, function () {
@@ -24,9 +24,9 @@ imageInputs.forEach(function (imageInput) {
 });
 
 function displayImage (e) {
-    var labelElement = document.querySelector(`[for = "${e.target.id}"]`)
+    const labelElement = document.querySelector(`[for = "${e.target.id}"]`)
 
-    var fileReader = new FileReader();
+    const fileReader = new FileReader();
     fileReader.readAsDataURL(e.target.files[0]);
     fileReader.addEventListener(`load`, function () {
         labelElement.innerHTML = `<img src="${this.result}" />`
@@ -38,7 +38,7 @@ function displayImage (e) {
 }
 
 function displayLabel () {
-    var found = false
+    const found = false
 
     imageLabels.forEach(function(imageLabel, index) {
         imageLabel.childNodes.forEach(function (childNode) {
