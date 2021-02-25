@@ -2,41 +2,37 @@ var express = require('express');
 var expHandlebars  = require('express-handlebars');
 var countriesList = require('countries-list');
 var FileReader = require('filereader');
-var {MongoClient} = require('mongodb');
+var dotenv = require('dotenv').config();
+var mongoose = require('mongoose');
+var dbURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}`
 
-var uri = "mongodb://localhost:27018";
+// console.log(dbURL)
 
-async function connect () {
-    var client = new MongoClient(uri);
-    try {
-        await client.connect();
-        var db = client.db('Cluster-Project-Tech');
-        console.log(`Connectie gelukt ${db.databaseName}`)
-    }
-    catch (error) {
-        console.error('Connectie mislukt' + error)
-    }
-    finally {
-        client.close();
-    }
-}
-connect();
+mongoose.connect(dbURL, {​​​​useUnifiedTopology: true, useNewUrlParser: true })
+
+// mongoose.connect(dbUrl, {​​​​ useUnifiedTopology: true }​​​​)
+
+console.log(process.env.DB_USER)
+
+// var {MongoClient} = require('mongodb');
+
+// var uri = "mongodb://localhost:27018";
 
 // async function connect () {
-//     var client = new MongoClient();
+//     var client = new MongoClient(uri);
 //     try {
-
-
-
+//         await client.connect();
+//         var db = client.db('Cluster-Project-Tech');
+//         console.log(`Connectie gelukt ${db.databaseName}`)
 //     }
 //     catch (error) {
 //         console.error('Connectie mislukt' + error)
 //     }
 //     finally {
-
-
+//         client.close();
 //     }
 // }
+// connect();
 
 // var mongoose = require('mongoose');
 
