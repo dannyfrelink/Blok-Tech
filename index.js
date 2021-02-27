@@ -3,10 +3,30 @@ const expHandlebars  = require('express-handlebars');
 const countriesList = require('countries-list');
 const FileReader = require('filereader');
 const dotenv = require('dotenv').config();
-const mongoose = require('mongoose');
-const dbURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}`
+const { MongoClient } = require('mongodb');
 
-mongoose.connect(dbURL, {useUnifiedTopology: true, useNewUrlParser: true});
+const dbURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}`
+const client = new MongoClient(dbURL);
+
+async function run() {
+    try {
+        await client.connect();
+        console.log('Connectie gelukt');
+    }
+    catch (error) {
+        console.error('Connectie mislukt', error);
+    }
+    finally {
+        await client.close();
+    }
+}
+
+run().catch(console.dir);
+
+// const mongoose = require('mongoose');
+// const dbURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}`
+
+// mongoose.connect(dbURL, {useUnifiedTopology: true, useNewUrlParser: true});
 
 const landen = Object.values(countriesList.countries);
 const continenten = Object.values(countriesList.continents);
