@@ -1,5 +1,5 @@
 const express = require(`express`);
-const expHandlebars  = require(`express-handlebars`);
+const expHandlebars = require(`express-handlebars`);
 const countriesList = require(`countries-list`);
 /* eslint-disable-next-line no-unused-vars */
 const FileReader = require(`filereader`);
@@ -8,19 +8,19 @@ const dotenv = require(`dotenv`).config();
 const { MongoClient } = require(`mongodb`);
 
 const dbURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_NAME}`;
-const client = new MongoClient(dbURL, {useUnifiedTopology: true});
+const client = new MongoClient(dbURL, { useUnifiedTopology: true });
 
 async function run() {
-    try {
-        await client.connect();
-        console.log(`Connectie gelukt`);
-    }
-    catch (error) {
-        console.error(`Connectie mislukt`, error);
-    }
-    finally {
-        await client.close();
-    }
+	try {
+		await client.connect();
+		console.log(`Connectie gelukt`);
+	}
+	catch (error) {
+		console.error(`Connectie mislukt`, error);
+	}
+	finally {
+		await client.close();
+	}
 }
 
 run().catch(console.dir);
@@ -37,37 +37,37 @@ app.engine(`handlebars`, expHandlebars());
 app.set(`view engine`, `handlebars`);
 
 app.get(`/persoonsgegevens`, (req, res) => {
-    res.render(`profiel-1`);
+	res.render(`profiel-1`);
 });
 
 app.post(`/fotos`, (req, res) => {
-    res.render(`addFoto`);
+	res.render(`addFoto`);
 });
 
 app.post(`/profiel/fotos`, (req, res) => {
-    res.render(`profiel-2`);
+	res.render(`profiel-2`);
 });
 
 app.get(`/zoekopdracht`, (req, res) => {
-    res.render(`addZoekopdracht`);
+	res.render(`addZoekopdracht`);
 });
 
 app.post(`/profiel/zoekopdracht`, (req, res) => {
-    res.render(`profiel-3`);
+	res.render(`profiel-3`);
 });
 
 app.get(`/reizen`, (req, res) => {
-    res.render(`addReizen`);
+	res.render(`addReizen`);
 });
 
 app.post(`/profiel/reizen`, (req, res) => {
-    res.render(`profiel-4`, {landen});
+	res.render(`profiel-4`, { landen });
 });
 
 app.use(function (req, res, next) {
-    res.status(404).send(`Sorry, deze pagina kon ik niet vinden.`);
+	res.status(404).send(`Sorry, deze pagina kon ik niet vinden.`);
 });
 
 app.listen(port, () => {
-    console.log(`Listening on port: ${port}`);
+	console.log(`Listening on port: ${port}`);
 });
