@@ -5,8 +5,8 @@ const FileReader = require('filereader');
 const dotenv = require('dotenv').config();
 const { MongoClient } = require('mongodb');
 
-const dbURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}`
-const client = new MongoClient(dbURL);
+const dbURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_NAME}`;
+const client = new MongoClient(dbURL, {useUnifiedTopology: true});
 
 async function run() {
     try {
@@ -22,11 +22,6 @@ async function run() {
 }
 
 run().catch(console.dir);
-
-// const mongoose = require('mongoose');
-// const dbURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}`
-
-// mongoose.connect(dbURL, {useUnifiedTopology: true, useNewUrlParser: true});
 
 const landen = Object.values(countriesList.countries);
 const continenten = Object.values(countriesList.continents);
