@@ -33,7 +33,7 @@ const port = 5555;
 
 const hbs = expHandlebars.create({
 	helpers: {
-		equals: (value1, value2) => { return value1 === value2 }
+		equals: (value1, value2) => { return value1 === value2; }
 	}
 });
 
