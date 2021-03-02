@@ -13,7 +13,7 @@ git clone https://github.com/dannyfrelink/Blok-Tech.git
 
 Vervolgens moet je de packages die ik hiervoor heb gebruikt installeren in deze folder:
 ```
-nvm install
+npm install
 ```
 
 Om mijn server vervolgens te runnen kan je gebruik maken van onderstaande shortcut:
