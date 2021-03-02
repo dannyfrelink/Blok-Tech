@@ -1,4 +1,4 @@
-<form class="reizen" action="">
+<form class="reizen" action="" method="GET">
 	<label>Kies hier jouw continent:</label>
 	<div>
 		{{#each continenten}}
@@ -7,60 +7,62 @@
 	</div>
 
 	<div>
-      {{#each landen}}
-        	{{#if (equals this.continent 'AF')}}
-        		<label><input type="checkbox">{{this.name}}</label>
-        	{{/if}}
-      {{/each}}
-	</div>
-
-	{{!-- <div>
-      {{#each landen}}
-        	{{#if (equals this.continent 'AN')}}
-        		<label>{{this.name}}</label>
-        	{{/if}}
-      {{/each}}
+	<div>
+		{{#each landen}}
+			{{#if (equals this.continent 'AF')}}
+				<label><input type="checkbox" id="{{this.name}}" name="{{this.name}}">{{this.name}}</label>
+			{{/if}}
+		{{/each}}
 	</div>
 
 	<div>
-      {{#each landen}}
-        	{{#if (equals this.continent 'AS')}}
-        		<label>{{this.name}}</label>
-        	{{/if}}
-      {{/each}}
+		{{#each landen}}
+			{{#if (equals this.continent 'AN')}}
+				<label><input type="checkbox" id="{{this.name}}" name="{{this.name}}">{{this.name}}</label>
+			{{/if}}
+		{{/each}}
 	</div>
 
 	<div>
-      {{#each landen}}
-        	{{#if (equals this.continent 'EU')}}
-        		<label>{{this.name}}</label>
-        	{{/if}}
-      {{/each}}
+		{{#each landen}}
+			{{#if (equals this.continent 'AS')}}
+				<label><input type="checkbox" id="{{this.name}}" name="{{this.name}}">{{this.name}}</label>
+			{{/if}}
+		{{/each}}
 	</div>
 
 	<div>
-      {{#each landen}}
-        	{{#if (equals this.continent 'NA')}}
-        		<label>{{this.name}}</label>
-        	{{/if}}
-      {{/each}}
+		{{#each landen}}
+			{{#if (equals this.continent 'EU')}}
+				<label><input type="checkbox" id="{{this.name}}" name="{{this.name}}">{{this.name}}</label>
+			{{/if}}
+		{{/each}}
 	</div>
 
 	<div>
-      {{#each landen}}
-        	{{#if (equals this.continent 'OC')}}
-        		<label>{{this.name}}</label>
-        	{{/if}}
-      {{/each}}
+		{{#each landen}}
+			{{#if (equals this.continent 'NA')}}
+				<label><input type="checkbox" id="{{this.name}}" name="{{this.name}}">{{this.name}}</label>
+			{{/if}}
+		{{/each}}
 	</div>
 
 	<div>
-      {{#each landen}}
-        	{{#if (equals this.continent 'SA')}}
-        		<label>{{this.name}}</label>
-        	{{/if}}
-      {{/each}}
-	</div> --}}
+		{{#each landen}}
+			{{#if (equals this.continent 'OC')}}
+				<label><input type="checkbox" id="{{this.name}}" name="{{this.name}}">{{this.name}}</label>
+			{{/if}}
+		{{/each}}
+	</div>
+
+	<div>
+		{{#each landen}}
+			{{#if (equals this.continent 'SA')}}
+				<label><input type="checkbox" id="{{this.name}}" name="{{this.name}}">{{this.name}}</label>
+			{{/if}}
+		{{/each}}
+	</div>
+	</div>
 
 	<div>
       <img src="images/pijl-vorige.png" alt="Vorige pagina">
