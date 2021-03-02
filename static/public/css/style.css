@@ -313,6 +313,10 @@ form.reizen>div:last-of-type>img {
 	position: absolute;
 	bottom: 4em;
 }
+form.reizen>div:first-of-type label:hover,
+form.reizen>div:first-of-type label.checked {
+	background-color: #B4DAA1;
+}
 
 footer {
 	width: 90vw;

@@ -57,36 +57,50 @@ function displayLabel() {
 
 for (let i = 0; i < landenContinenten.length; i++) {
 	continenten[0].addEventListener(`click`, function () {
+		continenten[i].classList.remove(`checked`);
+		continenten[0].classList.add(`checked`);
 		landenContinenten[i].style.display = `none`;
 		landenContinenten[0].style.display = `flex`;
 	});
 
 	continenten[1].addEventListener(`click`, function () {
+		continenten[i].classList.remove(`checked`);
+		continenten[1].classList.add(`checked`);
 		landenContinenten[i].style.display = `none`;
 		landenContinenten[1].style.display = `flex`;
 	});
 
 	continenten[2].addEventListener(`click`, function () {
+		continenten[i].classList.remove(`checked`);
+		continenten[2].classList.add(`checked`);
 		landenContinenten[i].style.display = `none`;
 		landenContinenten[2].style.display = `flex`;
 	});
 
 	continenten[3].addEventListener(`click`, function () {
+		continenten[i].classList.remove(`checked`);
+		continenten[3].classList.add(`checked`);
 		landenContinenten[i].style.display = `none`;
 		landenContinenten[3].style.display = `flex`;
 	});
 
 	continenten[4].addEventListener(`click`, function () {
+		continenten[i].classList.remove(`checked`);
+		continenten[4].classList.add(`checked`);
 		landenContinenten[i].style.display = `none`;
 		landenContinenten[4].style.display = `flex`;
 	});
 
 	continenten[5].addEventListener(`click`, function () {
+		continenten[i].classList.remove(`checked`);
+		continenten[5].classList.add(`checked`);
 		landenContinenten[i].style.display = `none`;
 		landenContinenten[5].style.display = `flex`;
 	});
 
 	continenten[6].addEventListener(`click`, function () {
+		continenten[i].classList.remove(`checked`);
+		continenten[6].classList.add(`checked`);
 		landenContinenten[i].style.display = `none`;
 		landenContinenten[6].style.display = `flex`;
 	});
