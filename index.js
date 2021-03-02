@@ -31,9 +31,15 @@ const continenten = Object.values(countriesList.continents);
 const app = express();
 const port = 5555;
 
+const hbs = expHandlebars.create({
+	helpers: {
+		equals: (value1, value2) => { return value1 === value2 }
+	}
+});
+
 app.use(express.static(`static/public`));
 
-app.engine(`handlebars`, expHandlebars());
+app.engine(`handlebars`, hbs.engine);
 app.set(`view engine`, `handlebars`);
 
 app.get(`/persoonsgegevens`, (req, res) => {
@@ -54,12 +60,6 @@ app.get(`/zoekopdracht`, (req, res) => {
 
 app.post(`/profiel/zoekopdracht`, (req, res) => {
 	res.render(`profiel-3`);
-});
-
-var hbs = expHandlebars.create({
-	helpers: {
-		africaChecker: function (value, checkValue) { if (value == checkValue) { return true; } },
-	}
 });
 
 app.get(`/reizen`, (req, res) => {
