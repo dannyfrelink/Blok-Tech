@@ -56,15 +56,21 @@ app.post(`/profiel/zoekopdracht`, (req, res) => {
 	res.render(`profiel-3`);
 });
 
+var hbs = expHandlebars.create({
+	helpers: {
+		africaChecker: function (value, checkValue) { if (value == checkValue) { return true; } },
+	}
+});
+
 app.get(`/reizen`, (req, res) => {
-	res.render(`addReizen`, { continenten, landen });
+	res.render(`addReizen`, { continenten, landen, hbs });
 });
 
 app.post(`/profiel/reizen`, (req, res) => {
 	res.render(`profiel-4`, { landen });
 });
 
-app.use(function (req, res, next) {
+app.use(function (req, res) {
 	res.status(404).send(`Sorry, deze pagina kon ik niet vinden.`);
 });
 
