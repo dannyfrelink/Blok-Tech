@@ -11,7 +11,7 @@ const landenContinenten = document.querySelectorAll(`form.reizen>div:nth-of-type
 
 checkboxLabels.forEach(function (checkboxLabel) {
 	checkboxLabel.addEventListener(`click`, function () {
-		checkboxLabel.classList.toggle(`checked`);
+		checkboxLabel.classList.add(`checked`);
 	});
 });
 
