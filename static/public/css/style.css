@@ -136,11 +136,11 @@ section:last-of-type img:nth-of-type(2) {
 
 form.fotos input {
 	width: 0.1px;
-height: 0.1px;
-opacity: 0;
-overflow: hidden;
-position: absolute;
-z-index: -1;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
 }
 form.fotos label {
 	background-color: white;
@@ -214,10 +214,10 @@ form.zoekopdracht>div>label {
 }
 form.zoekopdracht>div>div>input {
 	width: 0.1px;
-height: 0.1px;
-opacity: 0;
-overflow: hidden;
-position: absolute;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
 	z-index: -1;
 }
 form.zoekopdracht>div>div>label {
@@ -245,10 +245,10 @@ form.zoekopdracht select {
 }
 form.zoekopdracht>div:nth-of-type(4)>div>div>input {
 	width: 0.1px;
-height: 0.1px;
-opacity: 0;
-overflow: hidden;
-position: absolute;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
 	z-index: -1;
 }
 form.zoekopdracht>div:nth-of-type(4)>div>div>label {
@@ -274,6 +274,22 @@ form.zoekopdracht>div>div>label.checked,
 form.zoekopdracht>div:nth-of-type(4)>div>div>label.checked,
 form.zoekopdracht select.checked {
 	background-color: #B4DAA1;
+}
+
+form.reizen>div:first-of-type{
+	flex-wrap: wrap;
+	justify-content: flex-start
+}
+form.reizen>div:first-of-type label {
+	background-color: white;
+	border: 1px solid black;
+	width: fit-content;
+	height: 100%;
+	padding: 0.15em 0.5em;
+	margin-top: 0.5em;
+}
+form.reizen>div:first-of-type label:not(:last-of-type) {
+	margin-right: 1em;
 }
 
 footer {

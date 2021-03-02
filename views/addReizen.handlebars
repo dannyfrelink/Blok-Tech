@@ -1,0 +1,24 @@
+<form class="reizen" action="">
+	<label>Kies hier jouw continent:</label>
+	<div>
+		{{#each continenten}}
+			<label>{{this}}</label>
+		{{/each}}
+	</div>
+
+	<div>
+		{{#each landen}}
+			{{#if AF }}
+				<label>{{this.name}}</label>
+			{{/if}}
+		{{/each}}
+	</div>
+
+
+
+
+</form>
+
+
+
+{{!-- {{#each landen}} {{this.name}}{{this.emoji}}, {{/each}} --}}

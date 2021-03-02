@@ -57,7 +57,7 @@ app.post(`/profiel/zoekopdracht`, (req, res) => {
 });
 
 app.get(`/reizen`, (req, res) => {
-	res.render(`addReizen`);
+	res.render(`addReizen`, { continenten, landen });
 });
 
 app.post(`/profiel/reizen`, (req, res) => {
