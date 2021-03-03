@@ -2,6 +2,8 @@ const express = require(`express`);
 const expHandlebars = require(`express-handlebars`);
 const countriesList = require(`countries-list`);
 /* eslint-disable-next-line no-unused-vars */
+const bodyParser = require(`body-parser`);
+/* eslint-disable-next-line no-unused-vars */
 const FileReader = require(`filereader`);
 /* eslint-disable-next-line no-unused-vars */
 const dotenv = require(`dotenv`).config();
@@ -40,6 +42,7 @@ const hbs = expHandlebars.create({
 	}
 });
 
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(`static/public`));
 
 app.engine(`handlebars`, hbs.engine);
@@ -57,7 +60,9 @@ app.post(`/profiel/fotos`, (req, res) => {
 	res.render(`profiel-2`);
 });
 
-app.get(`/zoekopdracht`, (req, res) => {
+app.get(`/zoekopdracht`, async (req, res) => {
+	const gekozenZoekopdracht = {"geslacht": req.body.geslacht};
+	await db.collection(`landen`).insertMany(gekozenZoekopdracht);
 	res.render(`addZoekopdracht`);
 });
 
@@ -65,7 +70,9 @@ app.post(`/profiel/zoekopdracht`, (req, res) => {
 	res.render(`profiel-3`);
 });
 
-app.get(`/reizen`, (req, res) => {
+app.get(`/reizen`, async (req, res) => {
+	const gekozenLanden = {"name": req.body.name};
+	await db.collection(`landen`).insertMany(gekozenLanden);
 	res.render(`addReizen`, { continenten, landen, hbs });
 });
 
