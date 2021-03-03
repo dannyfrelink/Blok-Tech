@@ -23,9 +23,6 @@ async function run() {
 	catch (error) {
 		console.error(`Connectie mislukt`, error);
 	}
-	finally {
-		await client.close();
-	}
 }
 
 run().catch(console.dir);
@@ -61,9 +58,11 @@ app.post(`/profiel/fotos`, (req, res) => {
 });
 
 app.get(`/zoekopdracht`, async (req, res) => {
-	const gekozenZoekopdracht = {"geslacht": req.body.geslacht, "nationaliteit": req.body.nation, "leeftijd": req.body.leeftijd, "interesses": req.body.interesses};
-	await db.collection(`landen`).insertMany(gekozenZoekopdracht);
-	res.render(`addZoekopdracht`);
+	setTimeout(() => {
+		const gekozenZoekopdracht = {"geslacht": req.body.geslacht, "nationaliteit": req.body.nation, "leeftijd": req.body.leeftijd, "interesses": req.body.interesses};
+		db.collection(`zoekopdracht`).insertMany(gekozenZoekopdracht);
+		res.render(`addZoekopdracht`);
+	}, 2000);
 });
 
 app.post(`/profiel/zoekopdracht`, (req, res) => {
@@ -71,15 +70,19 @@ app.post(`/profiel/zoekopdracht`, (req, res) => {
 });
 
 app.get(`/reizen`, async (req, res) => {
-	const gekozenLanden = {"name": req.body.name};
-	await db.collection(`landen`).insertMany(gekozenLanden);
-	res.render(`addReizen`, { continenten, landen, hbs });
+	setTimeout(() => {
+		const gekozenLanden = {"name": req.body.name};
+		db.collection(`landen`).insertMany(gekozenLanden);
+		res.render(`addReizen`, { continenten, landen, hbs });
+	}, 2000);
 });
 
 app.post(`/profiel/reizen`, async (req, res) => {
-	let landenDB = {};
-	landenDB = await db.collection(`landen`).find({}, {sort: {name: 1}}).toArray();
-	res.render(`profiel-4`, { landen, landenDB });
+	setTimeout(() => {
+		let landenDB = {};
+		landenDB = db.collection(`landen`).find({}, {sort: {name: 1}}).toArray();
+		res.render(`profiel-4`, { landen, landenDB });
+	}, 2000);
 });
 
 app.use(function (req, res) {
