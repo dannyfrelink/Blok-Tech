@@ -10,9 +10,12 @@ const { MongoClient } = require(`mongodb`);
 const dbURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_NAME}`;
 const client = new MongoClient(dbURL, { useUnifiedTopology: true });
 
+let db = null;
+
 async function run() {
 	try {
 		await client.connect();
+		db = await client.db(process.env.DB_CALL);
 		console.log(`Connectie gelukt`);
 	}
 	catch (error) {
@@ -66,8 +69,10 @@ app.get(`/reizen`, (req, res) => {
 	res.render(`addReizen`, { continenten, landen, hbs });
 });
 
-app.post(`/profiel/reizen`, (req, res) => {
-	res.render(`profiel-4`, { landen });
+app.post(`/profiel/reizen`, async (req, res) => {
+	let landenDB = {};
+	landenDB = await db.collection(`landen`).find({}, {sort: {name: 1}}).toArray();
+	res.render(`profiel-4`, { landen, landenDB });
 });
 
 app.use(function (req, res) {
