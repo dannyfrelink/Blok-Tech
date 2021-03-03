@@ -291,18 +291,25 @@ form.reizen>div:first-of-type label {
 form.reizen>div:first-of-type label:not(:last-of-type) {
 	margin-right: 1em;
 }
+form.reizen>div:first-of-type label:hover,
+form.reizen>div:first-of-type label.checked {
+	background-color: #B4DAA1;
+}
 form.reizen>div:nth-of-type(2) {
 	flex-direction: column;
+}
+form.reizen>div:nth-of-type(2)>label {
+	margin-top: 1.5em;
 }
 form.reizen>div:nth-of-type(2) div {
 	display: none;
 	flex-direction: column;
 	border: 1px solid black;
 	height: fit-content;
-	max-height: 40vh;
+	max-height: 45vh;
 	width: 89vw;
 	overflow: scroll;
-	margin-top: 2em;
+	margin-top: 0.5em;
 	padding: 0.5em 0;
 }
 form.reizen>div:not(:first-of-type) label {
@@ -312,10 +319,6 @@ form.reizen>div:not(:first-of-type) label {
 form.reizen>div:last-of-type>img {
 	position: absolute;
 	bottom: 4em;
-}
-form.reizen>div:first-of-type label:hover,
-form.reizen>div:first-of-type label.checked {
-	background-color: #B4DAA1;
 }
 
 footer {
