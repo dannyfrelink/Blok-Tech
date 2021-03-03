@@ -61,7 +61,7 @@ app.post(`/profiel/fotos`, (req, res) => {
 });
 
 app.get(`/zoekopdracht`, async (req, res) => {
-	const gekozenZoekopdracht = {"geslacht": req.body.geslacht};
+	const gekozenZoekopdracht = {"geslacht": req.body.geslacht, "nationaliteit": req.body.nation, "leeftijd": req.body.leeftijd, "interesses": req.body.interesses};
 	await db.collection(`landen`).insertMany(gekozenZoekopdracht);
 	res.render(`addZoekopdracht`);
 });
