@@ -17,8 +17,6 @@ const client = new MongoClient(dbURL, { useUnifiedTopology: true });
 const landen = Object.values(countriesList.countries);
 const continenten = Object.values(countriesList.continents);
 
-console.log(landen);
-
 const hbs = expHandlebars.create({
 	helpers: {
 		equals: (value1, value2) => { return value1 === value2; }
@@ -32,7 +30,7 @@ app.engine(`handlebars`, hbs.engine);
 app.set(`view engine`, `handlebars`);
 
 app.get(`/persoonsgegevens`, (req, res) => {
-	res.render(`profiel-1`);
+	res.render(`profiel-1`, { landen });
 });
 
 app.post(`/fotos`, async (req, res) => {
@@ -129,7 +127,7 @@ app.post(`/profiel/reizen`, async (req, res) => {
 		const database = await client.db(process.env.DB_CALL);
 		console.log(`Connectie gelukt`);
 		const collection = database.collection(`landen`);
-		const gekozenLanden = { "landAF": req.body.landenAF, "landAn": req.body.landenAN };
+		const gekozenLanden = { "landen": req.body.landen };
 		await collection.insertOne(gekozenLanden);
 
 		landenDB = await collection.find({}).toArray();
