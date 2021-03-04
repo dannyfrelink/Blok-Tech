@@ -33,11 +33,56 @@ app.get(`/persoonsgegevens`, (req, res) => {
 	res.render(`profiel-1`);
 });
 
-app.post(`/fotos`, (req, res) => {
+app.post(`/fotos`, async (req, res) => {
+	let persoonsgegevensDB = {};
+
+	try {
+		await client.connect();
+		const database = await client.db(process.env.DB_CALL);
+		console.log(`Connectie gelukt`);
+		const collection = database.collection(`persoonsgegevens`);
+		const document = { "name": req.body.name, "nationaliteit": req.body.nation, "geboortedatum": req.body.geboorte, "geslacht": req.body.geslacht, "bio": req.body.bio };
+		await collection.insertOne({document});	
+
+		persoonsgegevensDB = await collection.find({}).toArray();
+
+		console.log(persoonsgegevensDB);
+	}
+	catch (error) {
+		console.error(`Connectie mislukt`, error);
+	}
+	finally {
+		await client.close();
+	}
+
 	res.render(`addFoto`);
 });
 
-app.post(`/profiel/fotos`, (req, res) => {
+app.post(`/profiel/fotos`, async (req, res) => {
+	let persoonsgegevensDB = {};
+	let fotosDB = {};
+
+	try {
+		await client.connect();
+		const database = await client.db(process.env.DB_CALL);
+		console.log(`Connectie gelukt`);
+		const collection = database.collection(`fotos`);
+		const document = { "pfImage": req.body.pfImage.innerHTML, "extraImage1": req.body.extraImage1.innerHTML, "extraImage2": req.body.extraImage2.innerHTML, "extraImage3": req.body.extraImage3.innerHTML };
+		await collection.insertOne({document});	
+
+		fotosDB = await collection.find({}).toArray();
+		persoonsgegevensDB = await collection(`persoonsgegevens`).find({}).toArray();
+
+		console.log(fotosDB);
+		console.log(persoonsgegevensDB);
+	}
+	catch (error) {
+		console.error(`Connectie mislukt`, error);
+	}
+	finally {
+		await client.close();
+	}
+
 	res.render(`profiel-2`);
 });
 
@@ -46,6 +91,8 @@ app.get(`/zoekopdracht`, async (req, res) => {
 });
 
 app.post(`/profiel/zoekopdracht`, async (req, res) => {
+	let zoekopdrachtDB = {};
+
 	try {
 		await client.connect();
 		const database = await client.db(process.env.DB_CALL);
@@ -53,6 +100,10 @@ app.post(`/profiel/zoekopdracht`, async (req, res) => {
 		const collection = database.collection(`zoekopdracht`);
 		const document = { "geslacht": req.body.geslacht, "nationaliteit": req.body.nation, "leeftijd": req.body.leeftijd, "interesses": req.body.interesses };
 		await collection.insertOne({document});	
+
+		zoekopdrachtDB = await collection.find({}).toArray();
+
+		console.log(zoekopdrachtDB);
 	}
 	catch (error) {
 		console.error(`Connectie mislukt`, error);
@@ -60,27 +111,35 @@ app.post(`/profiel/zoekopdracht`, async (req, res) => {
 	finally {
 		await client.close();
 	}
-	res.render(`profiel-3`);
+	res.render(`profiel-3`, {zoekopdrachtDB});
 });
 
 app.get(`/reizen`, async (req, res) => {
-	// run();
-	// const collection = database.collection(`landen`);
-	// const gekozenLanden = { "land": req.body.name };
-	// await collection.insertMany(gekozenLanden);
-
-	// let gekozenLanden = {};
-	// gekozenLanden = {"land": req.body.name};
-	// db.collection(`landen`).insertMany(gekozenLanden);
-
 	res.render(`addReizen`, { continenten, landen, hbs });
 });
 
 app.post(`/profiel/reizen`, async (req, res) => {
-	// setTimeout(() => {
-	// 	let landenDB = {};
-	// 	landenDB = database.collection(`landen`).find({}, {sort: {name: 1}}).toArray();
-	res.render(`profiel-4`, { landen });
+	let landenDB = {};
+
+	try {
+		await client.connect();
+		const database = await client.db(process.env.DB_CALL);
+		console.log(`Connectie gelukt`);
+		const collection = database.collection(`landen`);
+		const gekozenLanden = { "landAF": req.body.landenAF.innerHTML };
+		await collection.insertOne(gekozenLanden);
+
+		landenDB = await collection.find({}).toArray();
+
+		console.log(landenDB);
+	}
+	catch (error) {
+		console.error(`Connectie mislukt`, error);
+	}
+	finally {
+		await client.close();
+	}
+	res.render(`profiel-4`, { landen, landenDB });
 });
 
 app.use(function (req, res) {
