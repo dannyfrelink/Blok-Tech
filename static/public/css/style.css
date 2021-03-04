@@ -117,21 +117,24 @@ section:last-of-type {
 	border: none;
 }
 section:last-of-type img {
-	position: absolute;
-	bottom: 4em;
-	background-color: #A9DEEA;
-	padding: 0.2em;
 	width: 2.5em;
 	height: 2.5em;
-	margin: 0;
+	padding: 0.2em;
 	border-radius: 10vw;
 	border: 1px solid black;
+	background-color: #A9DEEA;
+	margin: 0;
 }
-section:last-of-type img:first-of-type {
+section:last-of-type>img {
+	position: absolute;
+	bottom: 4em;
 	left: 0;
 }
-section:last-of-type img:nth-of-type(2) {
+section:last-of-type a {
+	position: absolute;
+	bottom: 3.75em;
 	right: 0;
+	margin: 0;
 }
 
 form.fotos input {
