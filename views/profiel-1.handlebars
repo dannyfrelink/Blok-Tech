@@ -1,12 +1,12 @@
 <!-- Persoonsgegevens -->
 <form action="/fotos" method="POST">
     <label for="name">Voor- en achternaam</label>
-    <input type="text" name="name" placeholder="Pieter van der Meer">
+    <input type="text" name="name" placeholder="Pieter van der Meer" required>
     <div>
         <div>
             <label for="nation">Nationaliteit</label>
             <!-- landenlijst: https://www.zelfstudie.be/tools/landenlijst-contactformulier.html -->
-            <select name="nation">
+            <select name="nation" required="true">
                 <option selected disabled hidden>Kies een land</option>
                 <option>Afghanistan</option>
                 <option>Albania</option>
@@ -244,9 +244,9 @@
                 <option>Zimbabwe</option>
             </select>
             <label for="geboorte">Geboortedatum</label>
-            <input type="date" name="geboorte">
+            <input type="date" name="geboorte" required>
             <label for="geslacht">Geslacht</label>
-            <select name="geslacht">
+            <select name="geslacht" required>
                 <option selected disabled hidden>Kies een geslacht</option>
                 <option value="man">Man</option>
                 <option value="vrouw">Vrouw</option>
@@ -255,7 +255,7 @@
         </div>
         <div>
             <label for="bio">Vertel iets over jezelf</label>
-            <textarea name="bio" placeholder="Ik hou van ..."></textarea>
+            <textarea name="bio" placeholder="Ik hou van ..." required></textarea>
         </div>
     </div>
     {{!-- Navigatie pijlen --}}
