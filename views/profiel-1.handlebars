@@ -7,7 +7,15 @@
             <label for="nation">Nationaliteit</label>
             <!-- landenlijst: https://www.zelfstudie.be/tools/landenlijst-contactformulier.html -->
             <select name="nation" required="true">
-                <option value="" hidden>Kies een land</option>
+					<option value="" hidden>Kies een land</option>
+					{{#each landen}}
+						<option value="{{this.name}}">{{this.name}}</option>
+					{{/each}}
+
+
+
+
+                {{!-- <option value="" hidden>Kies een land</option>
                 <option>Afghanistan</option>
                 <option>Albania</option>
                 <option>Algeria</option>
@@ -241,7 +249,7 @@
                 <option>Western Sahara</option>
                 <option>Yemen</option>
                 <option>Zambia</option>
-                <option>Zimbabwe</option>
+                <option>Zimbabwe</option> --}}
             </select>
             <label for="geboorte">Geboortedatum</label>
             <input type="date" name="geboorte" required>
