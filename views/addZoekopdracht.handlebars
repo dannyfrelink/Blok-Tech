@@ -3,11 +3,11 @@
 		<label>Ik ben op zoek naar een:</label>
 		<div>
 			<label for="man">Man</label>
-			<input type="checkbox" id="man" name="geslacht">
+			<input type="radio" id="man" name="geslacht" value="man">
 			<label for="vrouw">Vrouw</label>
-			<input type="checkbox" id="vrouw" name="geslacht">
+			<input type="radio" id="vrouw" name="geslacht" value="vrouw">
 			<div>
-					<input type="checkbox" id="geenVoorkeur" name="geslacht">
+					<input type="radio" id="geenVoorkeur" name="geslacht">
 					<label for="geenVoorkeur">Geen voorkeur</label>
 			</div>
 		</div>
@@ -16,7 +16,7 @@
 	<div>
 		<label>Met deze nationaliteit:</label>
 		<div>
-			<select name="nation">
+			<select name="nation" disabled>
 					<option selected disabled hidden>Kies een land</option>
 					<option>Afghanistan</option>
 					<option>Albania</option>
@@ -320,7 +320,6 @@
 	</div>
 
 	<div>
-		<img src="images/pijl-vorige.png" alt="Vorige pagina">
 		<button><img src="images/pijl-volgende.png" alt="Volgende pagina"></button>
 	</div>
 </form>
