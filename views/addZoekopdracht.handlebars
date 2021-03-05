@@ -16,6 +16,13 @@
 	<div>
 		<label>Met deze nationaliteit:</label>
 		<div>
+			<select name="nation" required>
+				<option value="" hidden>Kies een land</option>
+				{{#each landen}}
+					<option value="{{this.name}}">{{this.name}}</option>
+				{{/each}}
+			</select>
+			{{!-- </select>
 			<select name="nation" disabled>
 					<option selected disabled hidden>Kies een land</option>
 					<option>Afghanistan</option>
@@ -252,7 +259,7 @@
 					<option>Yemen</option>
 					<option>Zambia</option>
 					<option>Zimbabwe</option>
-			</select>
+			</select> --}}
 			<div>
 					<input type="checkbox" id="geenVoorkeur" name="nation">
 					<label for="geenVoorkeur">Geen voorkeur</label>
@@ -265,12 +272,12 @@
 		<div>
 			<select name="leeftijd">
 					<option selected disabled hidden>Kies een leeftijd</option>
-					<option>16-22 jaar</option>
-					<option>23-32 jaar</option>
-					<option>33-40 jaar</option>
-					<option>41-49 jaar</option>
-					<option>50-59 jaar</option>
-					<option>60+ jaar</option>
+					<option value="16-22 jaar">16-22 jaar</option>
+					<option value="23-32 jaar">23-32 jaar</option>
+					<option value="33-40 jaar">33-40 jaar</option>
+					<option value="41-49 jaar">41-49 jaar</option>
+					<option value="50-59 jaar">50-59 jaar</option>
+					<option value="60+ jaar">60+ jaar</option>
 			</select>
 			<div>
 					<input type="checkbox" id="geenVoorkeur" name="leeftijd">
@@ -284,37 +291,37 @@
 		<div>
 			<div>
 					<label for="natuur">Natuur</label>
-					<input type="checkbox" id="natuur" name="interesses">
+					<input type="checkbox" id="natuur" name="interesses" value="natuur">
 					<label for="stad">Stad</label>
-					<input type="checkbox" id="stad" name="interesses">
+					<input type="checkbox" id="stad" name="interesses" value="stad">
 					<label for="zon">Zon</label>
-					<input type="checkbox" id="zon" name="interesses">
+					<input type="checkbox" id="zon" name="interesses" value="zon">
 					<label for="kou">Kou</label>
-					<input type="checkbox" id="kou" name="interesses">
+					<input type="checkbox" id="kou" name="interesses" value="kou">
 			</div>
 			<div>
 					<label for="strand">Strand</label>
-					<input type="checkbox" id="strand" name="interesses">
+					<input type="checkbox" id="strand" name="interesses" value="strand">
 					<label for="eten">Eten</label>
-					<input type="checkbox" id="eten" name="interesses">
+					<input type="checkbox" id="eten" name="interesses" value="eten">
 					<label for="architectuur">Architectuur</label>
-					<input type="checkbox" id="architectuur" name="interesses">
+					<input type="checkbox" id="architectuur" name="interesses" value="architectuur">
 			</div>
 			<div>
 					<label for="cultuur">Cultuur</label>
-					<input type="checkbox" id="cultuur" name="interesses">
+					<input type="checkbox" id="cultuur" name="interesses" value="cultuur">
 					<label for="actief">Actief</label>
-					<input type="checkbox" id="actief" name="interesses">
+					<input type="checkbox" id="actief" name="interesses" value="actief">
 					<label for="museum">Museum</label>
-					<input type="checkbox" id="museum" name="interesses">
+					<input type="checkbox" id="museum" name="interesses" value="museum">
 			</div>
 			<div>
 					<label for="ontspanning">Ontspanning</label>
-					<input type="checkbox" id="ontspanning" name="interesses">
+					<input type="checkbox" id="ontspanning" name="interesses" value="ontspanning">
 					<label for="sport">Sport</label>
-					<input type="checkbox" id="sport" name="interesses">
+					<input type="checkbox" id="sport" name="interesses" value="sport">
 					<label for="yoga">Yoga</label>
-					<input type="checkbox" id="yoga" name="interesses">
+					<input type="checkbox" id="yoga" name="interesses" value="yoga">
 			</div>
 		</div>
 	</div>

@@ -88,7 +88,7 @@ app.post(`/profiel/fotos`, async (req, res) => {
 });
 
 app.get(`/zoekopdracht`, async (req, res) => {
-	res.render(`addZoekopdracht`);
+	res.render(`addZoekopdracht`, { landen });
 });
 
 app.post(`/profiel/zoekopdracht`, async (req, res) => {
