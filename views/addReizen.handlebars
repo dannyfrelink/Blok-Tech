@@ -1,7 +1,7 @@
 <form class="reizen" action="profiel/reizen" method="POST">
 	<label>Kies hier jouw continent:</label>
 	<div>
-		{{#each continenten}}
+		{{#each continents}}
 			<label>{{this}}</label>
 		{{/each}}
 	</div>
@@ -9,7 +9,7 @@
 	<div>
 		<label>Kies hier de landen waar je heen wilt:</label>
 		<div>
-			{{#each landen}}
+			{{#each countries}}
 				{{#if (equals this.continent 'AF')}}
 					<label><input type="checkbox" id="{{this.name}}" name="landen" value="{{this.name}}">{{this.name}}</label>
 				{{/if}}
@@ -17,7 +17,7 @@
 		</div>
 
 		<div>
-			{{#each landen}}
+			{{#each countries}}
 				{{#if (equals this.continent 'AN')}}
 					<label><input type="checkbox" id="{{this.name}}" name="landen" value="{{this.name}}">{{this.name}}</label>
 				{{/if}}
@@ -25,7 +25,7 @@
 		</div>
 
 		<div>
-			{{#each landen}}
+			{{#each countries}}
 				{{#if (equals this.continent 'AS')}}
 					<label><input type="checkbox" id="{{this.name}}" name="landen" value="{{this.name}}">{{this.name}}</label>
 				{{/if}}
@@ -33,7 +33,7 @@
 		</div>
 
 		<div>
-			{{#each landen}}
+			{{#each countries}}
 				{{#if (equals this.continent 'EU')}}
 					<label><input type="checkbox" id="{{this.name}}" name="landen" value="{{this.name}}">{{this.name}}</label>
 				{{/if}}
@@ -41,7 +41,7 @@
 		</div>
 
 		<div>
-			{{#each landen}}
+			{{#each countries}}
 				{{#if (equals this.continent 'NA')}}
 					<label><input type="checkbox" id="{{this.name}}" name="landen" value="{{this.name}}">{{this.name}}</label>
 				{{/if}}
@@ -49,7 +49,7 @@
 		</div>
 
 		<div>
-			{{#each landen}}
+			{{#each countries}}
 				{{#if (equals this.continent 'OC')}}
 					<label><input type="checkbox" id="{{this.name}}" name="landen" value="{{this.name}}">{{this.name}}</label>
 				{{/if}}
@@ -57,7 +57,7 @@
 		</div>
 
 		<div>
-			{{#each landen}}
+			{{#each countries}}
 				{{#if (equals this.continent 'SA')}}
 					<label><input type="checkbox" id="{{this.name}}" name="landen" value="{{this.name}}">{{this.name}}</label>
 				{{/if}}
