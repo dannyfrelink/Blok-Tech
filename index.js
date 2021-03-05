@@ -82,11 +82,12 @@ app.post(`/fotos`, async (req, res) => {
 	res.render(`addFoto`);
 });
 
-app.post(`/profiel/fotos`, upload.single(`pfImage`), async (req, res) => {
-	const img = `uploads/${req.file.path.split(`/`).pop()}`;
+app.post(`/profiel/fotos`, upload.array(`fotos`), async (req, res) => {
+	console.log(req.files.path);
+	// const img = `uploads/${req.files.path.split(`/`).pop()}`;
 	try {
-		const document = { "pfImage": img[0], "extraImage1": img[1], "extraImage2": img[2], "extraImage3": img[3] };
-		await photos.insertOne({ document });
+		// const document = { "pfImage": img[0], "extraImage1": img[1], "extraImage2": img[2], "extraImage3": img[3] };
+		// await photos.insertOne({ document });
 	}
 	catch (error) {
 		console.error(`Error:`, error);
