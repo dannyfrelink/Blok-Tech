@@ -2,6 +2,7 @@ const express = require(`express`);
 const expHandlebars = require(`express-handlebars`);
 const app = express();
 const port = 5555;
+const multer = require(`multer`);
 const countriesList = require(`countries-list`);
 /* eslint-disable-next-line no-unused-vars */
 const bodyParser = require(`body-parser`);
@@ -12,10 +13,40 @@ const dotenv = require(`dotenv`).config();
 const { MongoClient } = require(`mongodb`);
 
 const dbURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_NAME}`;
-const client = new MongoClient(dbURL, { useUnifiedTopology: true });
 
-const landen = Object.values(countriesList.countries);
-const continenten = Object.values(countriesList.continents);
+let db;
+let users;
+let photos;
+let search;
+let travel;
+
+MongoClient.connect(dbURL, { useUnifiedTopology: true }, (err, client) => {
+	if (err) {
+		console.log(`MongoDB Error:` + err);
+	} else {
+		db = client.db(process.env.DB_CALL);
+		users = db.collection(`persoonsgegevens`);
+		photos = db.collection(`fotos`);
+		search = db.collection(`zoekopdracht`);
+		travel = db.collection(`landen`);
+	}
+});
+
+const storage = multer.diskStorage({
+	destination: (req, file, callback) => {
+		callback(null, `./static/public/uploads/`);
+	},
+	filename: (req, file, callback) => {
+		callback(null, `${Date.now()}.jpg`);
+	}
+});
+
+const upload = multer({
+	storage: storage
+});
+
+const countries = Object.values(countriesList.countries);
+const continents = Object.values(countriesList.continents);
 
 const hbs = expHandlebars.create({
 	helpers: {
@@ -30,117 +61,79 @@ app.engine(`handlebars`, hbs.engine);
 app.set(`view engine`, `handlebars`);
 
 app.get(`/persoonsgegevens`, (req, res) => {
-	res.render(`profiel-1`, { landen });
+	res.render(`profiel-1`, { countries });
 });
 
 app.post(`/fotos`, async (req, res) => {
-	let persoonsgegevensDB = {};
+	let usersDB = {};
 
 	try {
-		await client.connect();
-		const database = await client.db(process.env.DB_CALL);
-		console.log(`Connectie gelukt`);
-		const collection = database.collection(`persoonsgegevens`);
 		const document = { "name": req.body.name, "nationaliteit": req.body.nation, "geboortedatum": req.body.geboorte, "geslacht": req.body.geslacht, "bio": req.body.bio };
-		await collection.insertOne({ document });
+		await users.insertOne({ document });
 
-		persoonsgegevensDB = await collection.find({}).toArray();
+		usersDB = await users.find({}).toArray();
 
-		console.log(persoonsgegevensDB);
+		console.log(usersDB);
 	}
 	catch (error) {
-		console.error(`Connectie mislukt`, error);
-	}
-	finally {
-		await client.close();
+		console.error(`Error:`, error);
 	}
 
 	res.render(`addFoto`);
 });
 
-app.post(`/profiel/fotos`, async (req, res) => {
-	let persoonsgegevensDB = {};
-	let fotosDB = {};
-
+app.post(`/profiel/fotos`, upload.single(`pfImage`), async (req, res) => {
+	const img = `uploads/${req.file.path.split(`/`).pop()}`;
 	try {
-		await client.connect();
-		const database = await client.db(process.env.DB_CALL);
-		console.log(`Connectie gelukt`);
-		const fotoCollection = database.collection(`fotos`);
-		const persoonCollection = database.collection(`persoonsgegevens`);
-		const document = { "pfImage": req.body.pfImage.innerHTML, "extraImage1": req.body.extraImage1.innerHTML, "extraImage2": req.body.extraImage2.innerHTML, "extraImage3": req.body.extraImage3.innerHTML };
-		await fotoCollection.insertOne({ document });
-
-		fotosDB = await fotoCollection.find({}).toArray();
-		persoonsgegevensDB = await persoonCollection.find({}).toArray();
-
-		console.log(fotosDB);
-		console.log(persoonsgegevensDB);
+		const document = { "pfImage": img[0], "extraImage1": img[1], "extraImage2": img[2], "extraImage3": img[3] };
+		await photos.insertOne({ document });
 	}
 	catch (error) {
-		console.error(`Connectie mislukt`, error);
-	}
-	finally {
-		await client.close();
+		console.error(`Error:`, error);
 	}
 
 	res.render(`profiel-2`);
 });
 
 app.get(`/zoekopdracht`, async (req, res) => {
-	res.render(`addZoekopdracht`, { landen });
+	res.render(`addZoekopdracht`, { countries });
 });
 
 app.post(`/profiel/zoekopdracht`, async (req, res) => {
-	let zoekopdrachtDB = {};
-
+	let searchDB = {};
 	try {
-		await client.connect();
-		const database = await client.db(process.env.DB_CALL);
-		console.log(`Connectie gelukt`);
-		const collection = database.collection(`zoekopdracht`);
 		const document = { "geslacht": req.body.geslacht, "nationaliteit": req.body.nation, "leeftijd": req.body.leeftijd, "interesses": req.body.interesses };
-		await collection.insertOne({ document });
+		await search.insertOne({ document });
 
-		zoekopdrachtDB = await collection.find({}).toArray();
+		searchDB = await search.find({}).toArray();
 
-		console.log(zoekopdrachtDB);
+		console.log(searchDB);
 	}
 	catch (error) {
 		console.error(`Connectie mislukt`, error);
 	}
-	finally {
-		await client.close();
-	}
-	res.render(`profiel-3`, { zoekopdrachtDB });
+	res.render(`profiel-3`, { searchDB });
 });
 
 app.get(`/reizen`, async (req, res) => {
-	res.render(`addReizen`, { continenten, landen, hbs });
+	res.render(`addReizen`, { continents, countries, hbs });
 });
 
 app.post(`/profiel/reizen`, async (req, res) => {
-	let landenDB = {};
+	let countriesDB = {};
 
 	try {
-		await client.connect();
-		const database = await client.db(process.env.DB_CALL);
-		console.log(`Connectie gelukt`);
-		const collection = database.collection(`landen`);
-		const gekozenLanden = { "landen": req.body.landen };
-		await collection.insertOne(gekozenLanden);
+		const document = { "landen": req.body.landen };
+		await travel.insertOne(document);
 
-		landenDB = await collection.find({}).toArray();
+		countriesDB = await travel.find({}).toArray();
 
-		console.log(landenDB);
+		console.log(countriesDB);
 	}
 	catch (error) {
 		console.error(`Connectie mislukt`, error);
 	}
-	finally {
-		await client.close();
-	}
-	res.render(`profiel-4`, { landen, landenDB });
+	res.render(`profiel-4`, { countries, countriesDB });
 });
 
 app.use(function (req, res) {
