@@ -1,5 +1,7 @@
 # Blok Tech
 
+Welkom bij de Readme van mijn repository voor Blok Tech. Hier is alle informatie terug te vinden over de inhoud van mijn repository en hoe je deze zou kunnen ophalen op jouw eigen pc.
+
 ## Table of Contents
 * [Opdracht](#opdracht)
 * [Concept](#concept)
