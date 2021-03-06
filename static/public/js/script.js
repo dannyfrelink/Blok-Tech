@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 
 const chooseSelects = document.querySelectorAll(`form.zoekopdracht select`);
+const geenVoorkeurInputs = document.querySelectorAll(`form.zoekopdracht>div:not(:last-of-type) input[type="checkbox"]`);
 
 const imageInputs = document.querySelectorAll(`form.fotos input`);
 const imageLabels = document.querySelectorAll(`form.fotos label`);
@@ -98,3 +99,10 @@ for (let i = 0; i < landenContinenten.length; i++) {
 		landenContinenten[6].style.display = `flex`;
 	});
 }
+
+geenVoorkeurInputs[0].addEventListener(`click`, function () {
+	chooseSelects[0].toggleAttribute(`disabled`);
+});
+geenVoorkeurInputs[1].addEventListener(`click`, function () {
+	chooseSelects[1].toggleAttribute(`disabled`);
+});
