@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 
-const checkboxLabels = document.querySelectorAll(`form.zoekopdracht>div>div label`);
 const chooseSelects = document.querySelectorAll(`form.zoekopdracht select`);
 
 const imageInputs = document.querySelectorAll(`form.fotos input`);
@@ -8,12 +7,6 @@ const imageLabels = document.querySelectorAll(`form.fotos label`);
 
 const continenten = document.querySelectorAll(`form.reizen>div:first-of-type label`);
 const landenContinenten = document.querySelectorAll(`form.reizen>div:nth-of-type(2) div`);
-
-checkboxLabels.forEach(function (checkboxLabel) {
-	checkboxLabel.addEventListener(`click`, function () {
-		checkboxLabel.classList.toggle(`checked`);
-	});
-});
 
 chooseSelects.forEach(function (chooseSelect) {
 	chooseSelect.addEventListener(`change`, function () {

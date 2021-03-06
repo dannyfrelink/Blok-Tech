@@ -2,12 +2,14 @@
 	<div>
 		<label>Ik ben op zoek naar een:</label>
 		<div>
-			<label for="man">Man</label>
+
 			<input type="radio" id="man" name="geslacht" value="man">
-			<label for="vrouw">Vrouw</label>
+			<label for="man">Man</label>
+
 			<input type="radio" id="vrouw" name="geslacht" value="vrouw">
+			<label for="vrouw">Vrouw</label>
 			<div>
-					<input type="radio" id="geenVoorkeur" name="geslacht">
+					<input type="radio" id="geenVoorkeur" name="geslacht" value="geen voorkeur">
 					<label for="geenVoorkeur">Geen voorkeur</label>
 			</div>
 		</div>
@@ -23,7 +25,7 @@
 				{{/each}}
 			</select>
 			<div>
-					<input type="checkbox" id="geenVoorkeur" name="nation">
+					<input type="checkbox" id="geenVoorkeur" name="nation" value="geen voorkeur">
 					<label for="geenVoorkeur">Geen voorkeur</label>
 			</div>
 		</div>
@@ -42,7 +44,7 @@
 					<option value="60+ jaar">60+ jaar</option>
 			</select>
 			<div>
-					<input type="checkbox" id="geenVoorkeur" name="leeftijd">
+					<input type="checkbox" id="geenVoorkeur" name="leeftijd" value="geen voorkeur">
 					<label for="geenVoorkeur">Geen voorkeur</label>
 			</div>
 		</div>
@@ -52,38 +54,39 @@
 		<label>En deze interesses:</label>
 		<div>
 			<div>
-					<label for="natuur">Natuur</label>
+					
 					<input type="checkbox" id="natuur" name="interesses" value="natuur">
-					<label for="stad">Stad</label>
+					<label for="natuur">Natuur</label>
 					<input type="checkbox" id="stad" name="interesses" value="stad">
-					<label for="zon">Zon</label>
+					<label for="stad">Stad</label>
 					<input type="checkbox" id="zon" name="interesses" value="zon">
-					<label for="kou">Kou</label>
+					<label for="zon">Zon</label>
 					<input type="checkbox" id="kou" name="interesses" value="kou">
+					<label for="kou">Kou</label>
 			</div>
 			<div>
-					<label for="strand">Strand</label>
 					<input type="checkbox" id="strand" name="interesses" value="strand">
-					<label for="eten">Eten</label>
+					<label for="strand">Strand</label>
 					<input type="checkbox" id="eten" name="interesses" value="eten">
-					<label for="architectuur">Architectuur</label>
+					<label for="eten">Eten</label>
 					<input type="checkbox" id="architectuur" name="interesses" value="architectuur">
+					<label for="architectuur">Architectuur</label>
 			</div>
 			<div>
-					<label for="cultuur">Cultuur</label>
 					<input type="checkbox" id="cultuur" name="interesses" value="cultuur">
-					<label for="actief">Actief</label>
+					<label for="cultuur">Cultuur</label>
 					<input type="checkbox" id="actief" name="interesses" value="actief">
-					<label for="museum">Museum</label>
+					<label for="actief">Actief</label>
 					<input type="checkbox" id="museum" name="interesses" value="museum">
+					<label for="museum">Museum</label>
 			</div>
 			<div>
-					<label for="ontspanning">Ontspanning</label>
 					<input type="checkbox" id="ontspanning" name="interesses" value="ontspanning">
-					<label for="sport">Sport</label>
+					<label for="ontspanning">Ontspanning</label>
 					<input type="checkbox" id="sport" name="interesses" value="sport">
-					<label for="yoga">Yoga</label>
+					<label for="sport">Sport</label>
 					<input type="checkbox" id="yoga" name="interesses" value="yoga">
+					<label for="yoga">Yoga</label>
 			</div>
 		</div>
 	</div>
