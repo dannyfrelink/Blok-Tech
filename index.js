@@ -3,7 +3,7 @@ const expHandlebars = require(`express-handlebars`);
 const app = express();
 const port = 5555;
 const multer = require(`multer`);
-const { v4: uuidv4 } = require(`uuid`)
+const { v4: uuidv4 } = require(`uuid`);
 const countriesList = require(`countries-list`);
 /* eslint-disable-next-line no-unused-vars */
 const bodyParser = require(`body-parser`);
