@@ -3,3 +3,4 @@ node_modules/
 .env
 .editorconfig
 .eslintrc.json
+static/public/uploads/

@@ -120,8 +120,6 @@ app.post(`/profiel/fotos`, upload.array(`fotos`), async (req, res) => {
 
 		usersDB = await users.findOne({}, { sort: { _id: -1 }, limit: 1 });
 		// photosDB = await photos.findOne({}, { sort: { _id: -1 }, limit: 1 });
-
-		console.log(usersDB);
 	}
 	catch (error) {
 		console.error(`Error:`, error);
@@ -157,42 +155,29 @@ app.get(`/reizen`, async (req, res) => {
 	res.render(`addReizen`, { continents, countries, hbs });
 });
 
-// app.post(`/profiel/reizen`, async (req, res) => {
-// 	let usersDB = {};
-// 	let photosDB = {};
-// 	let searchDB = {};
-// 	let countriesDB = {};
-
-// 	try {
-// 		const document = { "landen": req.body.landen };
-// 		await travel.insertOne(document);
-
-// 		usersDB = await users.findOne({}, { sort: { _id: -1 }, limit: 1 });
-// 		photosDB = await photos.findOne({}, { sort: { _id: -1 }, limit: 1 });
-// 		searchDB = await search.findOne({}, { sort: { _id: -1 }, limit: 1 });
-// 		countriesDB = await travel.findOne({}, { sort: { _id: -1 }, limit: 1 });
-
-// 		console.log(countriesDB.landen);
-// 	}
-// 	catch (error) {
-// 		console.error(`Connectie mislukt`, error);
-// 	}
-// 	res.render(`profiel-4`, { countries, usersDB, photosDB, searchDB, countriesDB });
-// });
-
-app.get(`/profiel/reizen`, async (req, res) => {
+app.post(`/profiel/reizen`, async (req, res) => {
 	let usersDB = {};
 	let photosDB = {};
 	let searchDB = {};
 	let countriesDB = {};
 
-	usersDB = await users.findOne({}, { sort: { _id: -1 }, limit: 1 });
-	photosDB = await photos.findOne({}, { sort: { _id: -1 }, limit: 1 });
-	searchDB = await search.findOne({}, { sort: { _id: -1 }, limit: 1 });
-	countriesDB = await travel.findOne({}, { sort: { _id: -1 }, limit: 1 });
+	try {
+		const document = { "landen": req.body.landen };
+		await travel.insertOne(document);
 
-	res.render(`profiel-4`, { usersDB, photosDB, searchDB, countriesDB });
+		usersDB = await users.findOne({}, { sort: { _id: -1 }, limit: 1 });
+		photosDB = await photos.findOne({}, { sort: { _id: -1 }, limit: 1 });
+		searchDB = await search.findOne({}, { sort: { _id: -1 }, limit: 1 });
+		countriesDB = await travel.findOne({}, { sort: { _id: -1 }, limit: 1 });
+
+		console.log(countriesDB.landen);
+	}
+	catch (error) {
+		console.error(`Connectie mislukt`, error);
+	}
+	res.render(`profiel-4`, { countries, usersDB, photosDB, searchDB, countriesDB });
 });
+
 
 app.use(function (req, res) {
 	res.status(404).send(`Sorry, deze pagina kon ik niet vinden.`);

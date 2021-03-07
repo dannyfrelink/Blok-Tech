@@ -136,20 +136,29 @@ section:last-of-type a {
 	right: 0;
 	margin: 0;
 }
-section.landen {
+section.landen,
+section.zoeken {
+	font-size: 0.9em;
 	border: 1px solid black;
 }
 section.landen div {
+	margin-top: 0.3em;
+}
+section.landen div,
+section.zoeken div {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	margin-top: 0.3em;
 }
-section.landen label {
+section.landen label,
+section.zoeken label {
 	background-color: #B4DAA1;
 	border: 1px solid black;
 	padding: 0.15em 0.5em;
 	margin: 0.2em 0.3em 0.2em 0.2em;
+}
+section.zoeken div>p + label {
+	display: none;
 }
 
 form.fotos input {
