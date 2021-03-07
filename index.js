@@ -13,7 +13,7 @@ const FileReader = require(`filereader`);
 const dotenv = require(`dotenv`).config();
 const { MongoClient } = require(`mongodb`);
 
-const dbURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_NAME}`;
+const dbURL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_URI}`;
 
 let db;
 let users;
@@ -46,7 +46,7 @@ MongoClient.connect(dbURL, { useUnifiedTopology: true }, (err, client) => {
 	if (err) {
 		console.log(`MongoDB Error:` + err);
 	} else {
-		db = client.db(process.env.DB_CALL);
+		db = client.db(process.env.DB_NAME);
 		users = db.collection(`persoonsgegevens`);
 		photos = db.collection(`fotos`);
 		search = db.collection(`zoekopdracht`);
