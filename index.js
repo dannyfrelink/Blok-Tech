@@ -3,6 +3,7 @@ const expHandlebars = require(`express-handlebars`);
 const app = express();
 const port = 5555;
 const multer = require(`multer`);
+const { v4: uuidv4 } = require(`uuid`)
 const countriesList = require(`countries-list`);
 /* eslint-disable-next-line no-unused-vars */
 const bodyParser = require(`body-parser`);
@@ -19,6 +20,27 @@ let users;
 let photos;
 let search;
 let travel;
+
+const options = {
+	random: [
+		0x10,
+		0x91,
+		0x56,
+		0xbe,
+		0xc4,
+		0xfb,
+		0xc1,
+		0xea,
+		0x71,
+		0xb4,
+		0xef,
+		0xe1,
+		0x67,
+		0x1c,
+		0x58,
+		0x36
+	]
+};
 
 MongoClient.connect(dbURL, { useUnifiedTopology: true }, (err, client) => {
 	if (err) {
@@ -37,7 +59,7 @@ const storage = multer.diskStorage({
 		callback(null, `./static/public/uploads/`);
 	},
 	filename: (req, file, callback) => {
-		callback(null, `${Date.now()}.jpg`);
+		callback(null, `${uuidv4(options.random)}.jpg`);
 	}
 });
 
@@ -98,6 +120,7 @@ app.post(`/profiel/fotos`, upload.array(`fotos`), async (req, res) => {
 	try {
 		const document = { "pfImage": pfImage, "extraImage1": extraImage1, "extraImage2": extraImage2, "extraImage3": extraImage3, "extraImage4": extraImage4, "extraImage5": extraImage5, "extraImage6": extraImage6, "extraImage7": extraImage7, "extraImage8": extraImage8 };
 		await photos.insertOne({ document });
+		console.log(document);
 	}
 	catch (error) {
 		console.error(`Error:`, error);
