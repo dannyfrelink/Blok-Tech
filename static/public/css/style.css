@@ -136,8 +136,20 @@ section:last-of-type a {
 	right: 0;
 	margin: 0;
 }
-section#landen {
+section.landen {
 	border: 1px solid black;
+}
+section.landen div {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin-top: 0.3em;
+}
+section.landen label {
+	background-color: #B4DAA1;
+	border: 1px solid black;
+	padding: 0.15em 0.5em;
+	margin: 0.2em 0.3em 0.2em 0.2em;
 }
 
 form.fotos input {

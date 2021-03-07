@@ -1,3 +1,11 @@
-<section id="landen">
-    <p>Dit zijn de landen waar jij graag naar toe wilt: {{#each landenDB}} {{this.name}}{{this.emoji}}, {{/each}}</p>
+<section class="landen">
+    <p>Dit zijn de landen waar jij graag naar toe wilt: 
+		<div>
+			{{#each countriesDB.landen}}
+				<label>
+					{{this}}
+				</label> 
+			{{/each}}
+		</div>
+	</p>
 </section> 
