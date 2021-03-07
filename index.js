@@ -87,19 +87,15 @@ app.get(`/persoonsgegevens`, (req, res) => {
 });
 
 app.post(`/fotos`, async (req, res) => {
-	let usersDB = {};
-
 	try {
 		const document = { "name": req.body.name, "nationaliteit": req.body.nation, "geboortedatum": req.body.geboorte, "geslacht": req.body.geslacht, "bio": req.body.bio };
 		await users.insertOne({ document });
-
-		usersDB = await users.find({}).toArray();
 	}
 	catch (error) {
 		console.error(`Error:`, error);
 	}
 
-	res.render(`addFoto`, { usersDB });
+	res.render(`addFoto`);
 });
 
 app.post(`/profiel/fotos`, upload.array(`fotos`), async (req, res) => {
@@ -122,8 +118,10 @@ app.post(`/profiel/fotos`, upload.array(`fotos`), async (req, res) => {
 		const document = { "pfImage": pfImage, "extraImage1": extraImage1, "extraImage2": extraImage2, "extraImage3": extraImage3, "extraImage4": extraImage4, "extraImage5": extraImage5, "extraImage6": extraImage6, "extraImage7": extraImage7, "extraImage8": extraImage8 };
 		await photos.insertOne({ document });
 
-		usersDB = await users.find({}).toArray();
-		photosDB = await photos.find({}).toArray();
+		usersDB = await users.findOne({}, { sort: { _id: -1 }, limit: 1 });
+		photosDB = await photos.findOne({}, { sort: { _id: -1 }, limit: 1 });
+
+		console.log(usersDB);
 	}
 	catch (error) {
 		console.error(`Error:`, error);
@@ -131,6 +129,16 @@ app.post(`/profiel/fotos`, upload.array(`fotos`), async (req, res) => {
 
 	res.render(`profiel-2`, { usersDB, photosDB });
 });
+
+// app.get(`/profiel/fotos`, async (req, res) => {
+// 	let usersDB = {};
+// 	let photosDB = {};
+
+// 	usersDB = await users.findOne({}, { sort: { _id: -1 }, limit: 1 });
+// 	photosDB = await photos.findOne({}, { sort: { _id: -1 }, limit: 1 });
+
+// 	res.render(`profiel-2`, { usersDB, photosDB});
+// });
 
 app.get(`/zoekopdracht`, async (req, res) => {
 	res.render(`addZoekopdracht`, { countries});
@@ -145,9 +153,9 @@ app.post(`/profiel/zoekopdracht`, async (req, res) => {
 		const document = { "geslacht": req.body.geslacht, "nationaliteit": req.body.nation, "leeftijd": req.body.leeftijd, "interesses": req.body.interesses };
 		await search.insertOne({ document });
 
-		usersDB = await users.find({}).toArray();
-		photosDB = await photos.find({}).toArray();
-		searchDB = await search.find({}).toArray();
+		usersDB = await users.findOne({}, { sort: { _id: -1 }, limit: 1 });
+		photosDB = await photos.findOne({}, { sort: { _id: -1 }, limit: 1 });
+		searchDB = await search.findOne({}, { sort: { _id: -1 }, limit: 1 });
 	}
 	catch (error) {
 		console.error(`Connectie mislukt`, error);
@@ -169,10 +177,10 @@ app.post(`/profiel/reizen`, async (req, res) => {
 		const document = { "landen": req.body.landen };
 		await travel.insertOne(document);
 
-		usersDB = await users.find({}).toArray();
-		photosDB = await photos.find({}).toArray();
-		searchDB = await search.find({}).toArray();
-		countriesDB = await travel.find({}).toArray();
+		usersDB = await users.findOne({}, { sort: { _id: -1 }, limit: 1 });
+		photosDB = await photos.findOne({}, { sort: { _id: -1 }, limit: 1 });
+		searchDB = await search.findOne({}, { sort: { _id: -1 }, limit: 1 });
+		countriesDB = await travel.findOne({}, { sort: { _id: -1 }, limit: 1 });
 	}
 	catch (error) {
 		console.error(`Connectie mislukt`, error);

@@ -201,6 +201,22 @@ form.fotos>div:last-of-type>img {
 	bottom: 4em;
 }
 
+form.persoon label {
+	font-size: 0.9em;
+	margin-bottom: 0.5em;
+	background-color: white;
+	border: 1px solid black;
+	padding: 0 0.25em;
+}
+form.persoon>label {
+	width: 60vw;
+	height: auto;
+}
+form.persoon div div:nth-of-type(2) label {
+	height: 4.85em;
+	overflow-y: scroll;
+}
+
 form.zoekopdracht div {
 	flex-direction: column;
 }
