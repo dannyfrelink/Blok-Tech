@@ -96,9 +96,9 @@ section div img {
 	width: 3.5em;
 	height: 3.5em;
 }
-section div img:last-of-type {
+/* section div img:last-of-type {
 	opacity: 0;
-}
+} */
 section div img:nth-of-type(4),
 section div img:nth-of-type(5) {
 	margin-top: auto;

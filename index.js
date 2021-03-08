@@ -112,20 +112,32 @@ app.post(`/profiel/fotos`, upload.array(`fotos`), async (req, res) => {
 	const extraImage8 = `uploads/${paths[8]}`;
 
 	let usersDB = {};
-	// let photosDB = {};
+	let photosDB = {};
 
 	try {
 		const document = { "pfImage": pfImage, "extraImage1": extraImage1, "extraImage2": extraImage2, "extraImage3": extraImage3, "extraImage4": extraImage4, "extraImage5": extraImage5, "extraImage6": extraImage6, "extraImage7": extraImage7, "extraImage8": extraImage8 };
 		await photos.insertOne({ document });
 
 		usersDB = await users.findOne({}, { sort: { _id: -1 }, limit: 1 });
-		// photosDB = await photos.findOne({}, { sort: { _id: -1 }, limit: 1 });
+		photosDB = await photos.findOne({}, { sort: { _id: -1 }, limit: 1 });
 	}
 	catch (error) {
 		console.error(`Error:`, error);
 	}
 
-	res.render(`profiel-2`, { usersDB });
+	res.render(`profiel-2`, { usersDB, photosDB });
+});
+
+app.get(`/profiel/fotos`, async (req, res) => {
+	let usersDB = {};
+	let photosDB = {};
+
+	usersDB = await users.findOne({}, { sort: { _id: -1 }, limit: 1 });
+	photosDB = await photos.findOne({}, { sort: { _id: -1 }, limit: 1 });
+
+	console.log(photosDB.document);
+
+	res.render(`profiel-2`, { usersDB, photosDB });
 });
 
 app.get(`/zoekopdracht`, async (req, res) => {
