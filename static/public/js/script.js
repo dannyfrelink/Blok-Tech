@@ -100,9 +100,15 @@ for (let i = 0; i < landenContinenten.length; i++) {
 	});
 }
 
-geenVoorkeurInputs[0].addEventListener(`click`, function () {
-	chooseSelects[0].toggleAttribute(`disabled`);
-});
-geenVoorkeurInputs[1].addEventListener(`click`, function () {
-	chooseSelects[1].toggleAttribute(`disabled`);
-});
+console.log(geenVoorkeurInputs);
+
+if (geenVoorkeurInputs[0]) {
+	geenVoorkeurInputs[0].addEventListener(`click`, function () {
+		chooseSelects[0].toggleAttribute(`disabled`);
+	});
+}
+if (geenVoorkeurInputs[1]) {
+	geenVoorkeurInputs[1].addEventListener(`click`, function () {
+		chooseSelects[1].toggleAttribute(`disabled`);
+	});
+}

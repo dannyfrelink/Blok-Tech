@@ -1,7 +1,7 @@
 const express = require(`express`);
 const expHandlebars = require(`express-handlebars`);
 const app = express();
-const port = 5555;
+const port = process.env.PORT || 5555;
 const multer = require(`multer`);
 const { v4: uuidv4 } = require(`uuid`);
 const countriesList = require(`countries-list`);
