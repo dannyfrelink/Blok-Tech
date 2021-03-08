@@ -1,25 +1,8 @@
 <section>
-	{{#each photosDB}}
-	<img src="../{{this.pfImage}}" alt="Profielfoto">
-	{{/each}}
+		<img src="../uploads/{{photosDB.document.pfImage}}" alt="Profielfoto">
 	<div>
-		{{#each photosDB}}
-		<img src="../{{this.extraImage1}}" alt="Extra foto 1">
-		{{/each}}
-		{{#each photosDB}}
-		<img src="../{{this.extraImage2}}" alt="Extra foto 2">
-		{{/each}}
-		{{#each photosDB}}
-		<img src="../{{this.extraImage3}}" alt="Extra foto 3">
-		{{/each}}
-		{{#each photosDB}}
-		<img src="../{{this.extraImage4}}" alt="Extra foto 4">
-		{{/each}}
-		{{#each photosDB}}
-		<img src="../{{this.extraImage5}}" alt="Extra foto 5">
-		{{/each}}
-		{{#each photosDB}}
-		<img src="../{{this.extraImage6}}" alt="Extra foto 6">
+		{{#each photosDB.document.extraImages}}
+			<img src="../uploads/{{this}}" alt="Extra foto">
 		{{/each}}
 	</div>
 </section>

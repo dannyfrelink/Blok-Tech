@@ -101,21 +101,12 @@ app.post(`/fotos`, async (req, res) => {
 app.post(`/profiel/fotos`, upload.array(`fotos`), async (req, res) => {
 	let paths = [];
 	paths = req.files.map(file => file.path.split(`/`).pop());
-	const pfImage = `uploads/${paths[0]}`;
-	const extraImage1 = `uploads/${paths[1]}`;
-	const extraImage2 = `uploads/${paths[2]}`;
-	const extraImage3 = `uploads/${paths[3]}`;
-	const extraImage4 = `uploads/${paths[4]}`;
-	const extraImage5 = `uploads/${paths[5]}`;
-	const extraImage6 = `uploads/${paths[6]}`;
-	const extraImage7 = `uploads/${paths[7]}`;
-	const extraImage8 = `uploads/${paths[8]}`;
 
 	let usersDB = {};
 	let photosDB = {};
 
 	try {
-		const document = { "pfImage": pfImage, "extraImage1": extraImage1, "extraImage2": extraImage2, "extraImage3": extraImage3, "extraImage4": extraImage4, "extraImage5": extraImage5, "extraImage6": extraImage6, "extraImage7": extraImage7, "extraImage8": extraImage8 };
+		const document = { "pfImage": paths[0], "extraImages": paths.slice(1)};
 		await photos.insertOne({ document });
 
 		usersDB = await users.findOne({}, { sort: { _id: -1 }, limit: 1 });

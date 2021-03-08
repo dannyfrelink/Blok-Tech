@@ -85,22 +85,21 @@ section img {
 section>img {
 	width: 8em;
 	height: 8em;
-	margin-right: auto;
 }
 section div {
+	width: 100%;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: flex-start;
 	flex-wrap: wrap;
 }
 section div img {
 	width: 3.5em;
 	height: 3.5em;
+	margin: 0 0.3em;
 }
-/* section div img:last-of-type {
-	opacity: 0;
-} */
 section div img:nth-of-type(4),
-section div img:nth-of-type(5) {
+section div img:nth-of-type(5),
+section div img:nth-of-type(6) {
 	margin-top: auto;
 }
 
