@@ -160,8 +160,6 @@ app.post(`/profiel/reizen`, async (req, res) => {
 		photosDB = await photos.findOne({}, { sort: { _id: -1 }, limit: 1 });
 		searchDB = await search.findOne({}, { sort: { _id: -1 }, limit: 1 });
 		countriesDB = await travel.findOne({}, { sort: { _id: -1 }, limit: 1 });
-
-		console.log(countriesDB.landen);
 	}
 	catch (error) {
 		console.error(`Connectie mislukt`, error);
