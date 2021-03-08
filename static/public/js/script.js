@@ -100,8 +100,6 @@ for (let i = 0; i < landenContinenten.length; i++) {
 	});
 }
 
-console.log(geenVoorkeurInputs);
-
 if (geenVoorkeurInputs[0]) {
 	geenVoorkeurInputs[0].addEventListener(`click`, function () {
 		chooseSelects[0].toggleAttribute(`disabled`);
