@@ -119,18 +119,6 @@ app.post(`/profiel/fotos`, upload.array(`fotos`), async (req, res) => {
 	res.render(`profiel-2`, { usersDB, photosDB });
 });
 
-app.get(`/profiel/fotos`, async (req, res) => {
-	let usersDB = {};
-	let photosDB = {};
-
-	usersDB = await users.findOne({}, { sort: { _id: -1 }, limit: 1 });
-	photosDB = await photos.findOne({}, { sort: { _id: -1 }, limit: 1 });
-
-	console.log(photosDB.document);
-
-	res.render(`profiel-2`, { usersDB, photosDB });
-});
-
 app.get(`/zoekopdracht`, async (req, res) => {
 	res.render(`addZoekopdracht`, { countries});
 });
