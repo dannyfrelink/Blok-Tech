@@ -36,4 +36,4 @@ npm start
 ```
 
 ## License
-Voor onze repository heb ik gebruik gemaakt van een [MIT License](https://github.com/dannyfrelink/Tech3-Team1/blob/main/LICENSE)
+Voor onze repository hebben we gebruik gemaakt van een [MIT License](https://github.com/dannyfrelink/Tech3-Team1/blob/main/LICENSE)
